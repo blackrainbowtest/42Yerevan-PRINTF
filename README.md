@@ -40,4 +40,4 @@ va_end(va_list ap) — այս ֆունկցիան պետք է կանչել ֆու
 
 ### Ինչ պետք է ուսումնասիրեմ՝
 
-C type promotion, Default promotion - Թույլ կտա հասկանալ թե ինչու է ft_write_char(va_arg(ap, int)) այս արտահայտությունում տառ տպելու համար փոխանցում ենք տվյալի տիպը ոչ թե **char** այլ **int**:
+C type promotion, Default promotion - Թույլ կտա հասկանալ թե ինչու է ft_write_char(va_arg(ap, int)) այս արտահայտությունում տառ տպելու համար փոխանցում ենք տվյալի տիպը ոչ թե <span style="color: skyblue;">**char**</span> այլ <span style="color: red;">**int**</span>:
