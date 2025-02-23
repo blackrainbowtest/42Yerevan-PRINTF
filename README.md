@@ -104,3 +104,6 @@
 | `float`         | Преобразуется в `double`  | ✅ Нужно использовать `double` |
 | `double`        | Не изменяется             | ❌ Можно использовать `double` |
 
+https://pythontutor.com/
+
+for training and understund how code does work
