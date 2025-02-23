@@ -7,7 +7,11 @@ int	ft_print(char specifier, va_list ap)
 	int		count;
 
 	if (specifier == 'c')
-		ft_write_char(va_arg(ap, int));
+		count += ft_write_chr(va_arg(ap, int));
+	else if (specifier == 's')
+		count += ft_write_str(va_arg(ap, char *));
+	else if (specifier == 'd')
+		count += ft_write_dig(va_arg(ap, int));
 }
 
 int	ft_printf(const char	*format, ...)
