@@ -11,7 +11,12 @@ int	ft_print(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += ft_write_str(va_arg(ap, char *));
 	else if (specifier == 'd')
-		count += ft_write_dig(va_arg(ap, int));
+		count += ft_write_dig(va_arg(ap, int), 10);
+	else if (specifier == 'd')
+		count += ft_write_dig(va_arg(ap, unsigned int), 16);
+	else
+		count += write(1, &specifier, 1);
+	return (count);
 }
 
 int	ft_printf(const char	*format, ...)
