@@ -1,4 +1,16 @@
-#include "libftprintf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/23 16:36:42 by aramarak          #+#    #+#             */
+/*   Updated: 2025/02/23 16:37:18 by aramarak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_handle_format(char specifier, va_list ap)
 {
@@ -29,7 +41,7 @@ int	ft_printf(const char	*format, ...)
 	{
 		if (*format == '%')
 			count += ft_handle_format(*(++format), ap);
-		else 
+		else
 			count += write(1, format, 1);
 		++format;
 	}
