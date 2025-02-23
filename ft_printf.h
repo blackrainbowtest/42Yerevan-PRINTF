@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <limits.h>
 
 int	ft_write_str(char *str);
 int	ft_write_dig(long n, int base);

@@ -20,13 +20,13 @@ int	main(void)
 	// ft_printf("printed chars count: %d\n", count);
 	// count = printf("%x\n", -1);
 	// printf("printed chars in real one count: %d\n", count);
-	// count = ft_printf("%x\n", INT32_MIN);
+	// count = ft_printf("%x\n", INT_MIN);
 	// ft_printf("printed chars count: %d\n", count);
-	// count = printf("%x\n", INT32_MIN);
+	// count = printf("%x\n", INT_MIN);
 	// printf("printed chars in real one count: %d\n", count);
-	// count = ft_printf("%x\n", INT32_MAX);
+	// count = ft_printf("%x\n", INT_MAX);
 	// ft_printf("printed chars count: %d\n", count);
-	// count = printf("%x\n", INT32_MAX);
+	// count = printf("%x\n", INT_MAX);
 	// printf("printed chars in real one count: %d\n", count);
 	// count = ft_printf("%x\n", 0);
 	// ft_printf("printed chars count: %d\n", count);
