@@ -24,9 +24,9 @@ int	ft_handle_format(char specifier, va_list ap)
 	else if (specifier == 'd')
 		count += ft_write_dig((long)va_arg(ap, int), 10, 0);
 	else if (specifier == 'x')
-		count += ft_write_dig((long)va_arg(ap, unsigned int), 16, 0);
+		count += ft_write_dig_unsigned((long)va_arg(ap, unsigned int), 16, 0);
 	else if (specifier == 'X')
-		count += ft_write_dig((long)va_arg(ap, unsigned int), 16, 1);
+		count += ft_write_dig_unsigned((long)va_arg(ap, unsigned int), 16, 1);
 	else if (specifier == 'p')
 		count += ft_write_ptr(va_arg(ap, void *));
 	else

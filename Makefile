@@ -7,7 +7,7 @@ CC := cc
 CFLAGS := -Wall -Werror -Wextra
 
 # C sources
-CSRC := ft_printf.c ft_write_chr.c ft_write_str.c ft_write_dig.c
+CSRC := ft_printf.c ft_write_chr.c ft_write_str.c ft_write_dig.c ft_write_ptr.c
 
 # Replace .c to .o
 OSRC = $(CSRC:.c=.o)

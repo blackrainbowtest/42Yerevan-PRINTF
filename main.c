@@ -33,11 +33,13 @@ int	main(void)
 	// count = printf("%x\n", 0);
 	// printf("printed chars in real one count: %d\n", count);
 
-	count = printf(" NULL %s NULL ", NULL);
-	printf("printed chars in real one count: %d\n", count);
+	// count = printf(" NULL %s NULL ", NULL);
+	// printf("printed chars in real one count: %d\n", count);
 
-	count = ft_printf(" NULL %s NULL ", NULL);
-	ft_printf("printed chars in real one count: %d\n", count);
+	// count = ft_printf(" NULL %s NULL ", NULL);
+	// ft_printf("printed chars in real one count: %d\n", count);
+
+
 
 	return (0);
 }

@@ -25,11 +25,28 @@ int	ft_write_dig(long n, int base, int capital)
 		write(1, "-", 1);
 		return (ft_write_dig(-n, base, capital) + 1);
 	}
-	else if (n < base)
+	else if (n < (long)base)
 		return (ft_write_chr(symbols[n]));
 	else
 	{
 		count = ft_write_dig(n / base, base, capital);
 		return (count + ft_write_dig(n % base, base, capital));
+	}
+}
+
+int	ft_write_dig_unsigned(unsigned long n, int base, int capital)
+{
+	int		count;
+	char	*symbols;
+
+	symbols = "0123456789abcdef";
+	if (capital)
+		symbols = "0123456789ABCDEF";
+	if (n < (unsigned)base)
+		return (ft_write_chr(symbols[n]));
+	else
+	{
+		count = ft_write_dig_unsigned(n / (unsigned)base, base, capital);
+		return (count + ft_write_dig_unsigned(n % (unsigned)base, base, capital));
 	}
 }
