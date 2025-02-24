@@ -17,6 +17,8 @@ int	ft_write_str(char *str)
 	int	count;
 
 	count = 0;
+	if (!str)
+		str = "(null)";
 	while (*str)
 	{
 		count += ft_write_chr((int)*str);
