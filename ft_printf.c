@@ -27,6 +27,8 @@ int	ft_handle_format(char specifier, va_list ap)
 		count += ft_write_dig((long)va_arg(ap, unsigned int), 16, 0);
 	else if (specifier == 'X')
 		count += ft_write_dig((long)va_arg(ap, unsigned int), 16, 1);
+	else if (specifier == 'p')
+		count += ft_write_ptr(va_arg(ap, void *));
 	else
 		count += write(1, &specifier, 1);
 	return (count);
