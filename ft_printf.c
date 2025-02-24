@@ -22,9 +22,11 @@ int	ft_handle_format(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += ft_write_str(va_arg(ap, char *));
 	else if (specifier == 'd')
-		count += ft_write_dig((long)va_arg(ap, int), 10);
+		count += ft_write_dig((long)va_arg(ap, int), 10, 0);
 	else if (specifier == 'x')
-		count += ft_write_dig((long)va_arg(ap, unsigned int), 16);
+		count += ft_write_dig((long)va_arg(ap, unsigned int), 16, 0);
+	else if (specifier == 'X')
+		count += ft_write_dig((long)va_arg(ap, unsigned int), 16, 1);
 	else
 		count += write(1, &specifier, 1);
 	return (count);
