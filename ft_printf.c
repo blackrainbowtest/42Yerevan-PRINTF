@@ -23,6 +23,10 @@ int	ft_handle_format(char specifier, va_list ap)
 		count += ft_write_str(va_arg(ap, char *));
 	else if (specifier == 'd')
 		count += ft_write_dig((long)va_arg(ap, int), 10, 0);
+	else if (specifier == 'i')
+		count += ft_write_dig((long)va_arg(ap, int), 10, 0);
+	else if (specifier == 'u')
+		count += ft_write_dig_unsigned((long)va_arg(ap, unsigned int), 10, 0);
 	else if (specifier == 'x')
 		count += ft_write_dig_unsigned((long)va_arg(ap, unsigned int), 16, 0);
 	else if (specifier == 'X')
