@@ -17,7 +17,9 @@ int	ft_handle_format(char specifier, va_list ap)
 	int		count;
 
 	count = 0;
-	if (specifier == 'c')
+	if (specifier == '%')
+		count += write(1, "%", 1);
+	else if (specifier == 'c')
 		count += ft_write_chr(va_arg(ap, int));
 	else if (specifier == 's')
 		count += ft_write_str(va_arg(ap, char *));
