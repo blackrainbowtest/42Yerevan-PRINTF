@@ -40,7 +40,11 @@ int	main(void)
 	// ft_printf("printed chars in real one count: %d\n", count);
 
 
+	// count = ft_printf(" %p ", -1);
+	// ft_printf("printed address in real one count: %d\n", count);
 
+	count = printf(" %p ", -1);
+	printf("printed address in real one count: %d\n", count);
 	return (0);
 }
 
