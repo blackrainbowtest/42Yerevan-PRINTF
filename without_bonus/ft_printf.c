@@ -45,6 +45,8 @@ int	ft_printf(const char	*format, ...)
 	va_list	ap;
 	int		count;
 
+	if (!format || *format == '\0')
+		return (0);
 	va_start(ap, format);
 	count = 0;
 	while (*format != '\0')

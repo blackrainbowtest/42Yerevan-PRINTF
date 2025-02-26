@@ -19,6 +19,12 @@
 # include <stdarg.h>
 # include <limits.h>
 
+# if defined (__linux__)
+# define DEFAULTNULL "(nil)"
+# elif defined (__APPLE__)
+# define DEFAULTNULL "0x0"
+#endif
+
 int	ft_write_str(char *str);
 int	ft_write_dig(long n, int base, int capital);
 int	ft_write_dig_unsigned(unsigned long n, int base, int capital);
