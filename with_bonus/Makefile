@@ -7,7 +7,8 @@ CC := cc
 CFLAGS := -Wall -Werror -Wextra
 
 # C sources
-CSRC := ft_printf.c ft_write_chr.c ft_write_str.c ft_write_dig.c ft_write_ptr.c
+CSRC := ft_printf.c ft_write_chr.c ft_write_dig.c ft_write_ptr.c ft_write_str.c \
+		utils/ft_memcpy.c utils/ft_strdup.c utils/ft_strlen.c
 
 # Replace .c to .o
 OSRC = $(CSRC:.c=.o)
@@ -26,7 +27,7 @@ $(NAME): $(OSRC) Makefile
 all: $(NAME)
 
 # no special packets for bonus
-bonus: all
+# bonus: all
 
 # define rule to clean
 clean:

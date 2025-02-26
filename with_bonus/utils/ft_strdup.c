@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_str.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 16:38:58 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/23 16:39:00 by aramarak         ###   ########.fr       */
+/*   Created: 2025/02/26 19:40:47 by aramarak          #+#    #+#             */
+/*   Updated: 2025/02/26 19:47:20 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_write_str(char *str)
+char	*ft_strdup(const char *s)
 {
-	int	count;
+	size_t	len;
+	char	*str;
 
-	count = 0;
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
-		str = "(null)";
-	while (*str)
-	{
-		count += ft_write_chr((int)*str);
-		++str;
-	}
-	return (count);
+		return (NULL);
+	ft_memcpy(str, s, len + 1);
+	str[len] = '\0';
+	return (str);
 }

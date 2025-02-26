@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_str.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 16:38:58 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/23 16:39:00 by aramarak         ###   ########.fr       */
+/*   Created: 2025/02/26 19:41:00 by aramarak          #+#    #+#             */
+/*   Updated: 2025/02/26 19:41:04 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_write_str(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	count;
+	size_t	len;
 
-	count = 0;
-	if (!str)
-		str = "(null)";
-	while (*str)
-	{
-		count += ft_write_chr((int)*str);
-		++str;
-	}
-	return (count);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }
