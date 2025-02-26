@@ -17,7 +17,10 @@ int	ft_write_ptr(void *ptr)
 	int	count;
 
 	if (!ptr)
-		return (write(1, "0x0", 5));
+	{
+		count = ft_write_str(DEFAULTNULL);
+		return (count);
+	}
 	count = write(1, "0x", 2);
 	count += ft_write_dig_unsigned((unsigned long)ptr, 16, 0);
 	return (count);
