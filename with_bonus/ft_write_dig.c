@@ -44,9 +44,6 @@ int	ft_write_dig_unsigned(unsigned long n, int base, int capital)
 		symbols = "0123456789ABCDEF";
 	if (n < (unsigned)base)
 		return (ft_write_chr(symbols[n]));
-	else
-	{
-		count = ft_write_dig_unsigned(n / (unsigned)base, base, capital);
-		return (count + ft_write_dig_unsigned(n % (unsigned)base, base, capital));
-	}
+	count = ft_write_dig_unsigned(n / (unsigned)base, base, capital);
+	return (count + ft_write_dig_unsigned(n % (unsigned)base, base, capital));
 }

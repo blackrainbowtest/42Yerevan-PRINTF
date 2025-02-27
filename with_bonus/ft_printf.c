@@ -52,7 +52,6 @@ int	ft_printf(const char	*format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%')
-			count += 1;
 			count += ft_handle_format(*(++format), ap);
 		else
 			count += write(1, format, 1);
