@@ -31,6 +31,7 @@ typedef	struct	s_keys
 	int	width;
 }				t_keys
 
+// no bonus part
 int	ft_write_str(char *str);
 int	ft_write_dig(long n, int base, int capital);
 int	ft_write_dig_unsigned(unsigned long n, int base, int capital);
