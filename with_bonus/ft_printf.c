@@ -44,6 +44,7 @@ int	ft_printf(const char	*format, ...)
 {
 	va_list	ap;
 	int		count;
+	t_keys	keys;
 
 	if (!format || *format == '\0')
 		return (0);
@@ -52,7 +53,13 @@ int	ft_printf(const char	*format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%')
+		{
+			++format;
+			// add keys init func??????
+			format += ft_format_parse(format, *keys);
 			count += ft_handle_format(*(++format), ap);
+
+		}
 		else
 			count += write(1, format, 1);
 		++format;
