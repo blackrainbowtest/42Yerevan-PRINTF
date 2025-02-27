@@ -12,18 +12,16 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
 # include <limits.h>
-
-# if defined (__linux__)
-# define DEFAULTNULL "(nil)"
-# elif defined (__APPLE__)
-# define DEFAULTNULL "0x0"
-#endif
+# if defined(__linux__)
+#  define DEFAULTNULL "(nil)"
+# elif defined(__APPLE__)
+#  define DEFAULTNULL "0x0"
+# endif
 
 int	ft_write_str(char *str);
 int	ft_write_dig(long n, int base, int capital);
