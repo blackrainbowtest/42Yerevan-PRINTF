@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_handle_format(char specifier, va_list ap)
+int	ft_handle_format(char specifier, va_list ap, t_keys *keys)
 {
 	int		count;
 
@@ -24,9 +24,9 @@ int	ft_handle_format(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += ft_write_str(va_arg(ap, char *));
 	else if (specifier == 'd')
-		count += ft_write_dig((long)va_arg(ap, int), 10, 0);
+		count += ft_write_dig((long)va_arg(ap, int), 10, 0, keys);
 	else if (specifier == 'i')
-		count += ft_write_dig((long)va_arg(ap, int), 10, 0);
+		count += ft_write_dig((long)va_arg(ap, int), 10, 0, keys);
 	else if (specifier == 'u')
 		count += ft_write_dig_unsigned((long)va_arg(ap, unsigned int), 10, 0);
 	else if (specifier == 'x')
@@ -55,10 +55,8 @@ int	ft_printf(const char	*format, ...)
 		if (*format == '%')
 		{
 			++format;
-			// add keys init func??????
-			format += ft_format_parse(format, *keys);
-			count += ft_handle_format(*(++format), ap);
-
+			format = ft_format_parse(format, &keys);
+			count += ft_handle_format(*format, ap, &keys);
 		}
 		else
 			count += write(1, format, 1);

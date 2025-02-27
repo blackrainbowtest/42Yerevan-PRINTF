@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_write_dig(long n, int base, int capital)
+int	ft_write_dig(long n, int base, int capital, t_keys *keys)
 {
 	int		count;
 	char	*symbols;
@@ -23,14 +23,14 @@ int	ft_write_dig(long n, int base, int capital)
 	if (n < 0)
 	{
 		write(1, "-", 1);
-		return (ft_write_dig(-n, base, capital) + 1);
+		return (ft_write_dig(-n, base, capital, keys) + 1);
 	}
 	else if (n < (long)base)
 		return (ft_write_chr(symbols[n]));
 	else
 	{
-		count = ft_write_dig(n / base, base, capital);
-		return (count + ft_write_dig(n % base, base, capital));
+		count = ft_write_dig(n / base, base, capital, keys);
+		return (count + ft_write_dig(n % base, base, capital, keys));
 	}
 }
 

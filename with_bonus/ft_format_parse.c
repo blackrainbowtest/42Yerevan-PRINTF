@@ -1,4 +1,4 @@
-#include "ft_printf.c"
+#include "ft_printf.h"
 
 static int	is_number(int c)
 {
@@ -10,9 +10,10 @@ static int	ft_atoi(const char **format)
 	int	count;
 
 	count = 0;
-	while ()
+	while (is_number(**format))
 	{
-		
+		count = (count * 10) + (**format - '0');
+		++(*format);
 	}
 	return (count);
 }
@@ -21,13 +22,13 @@ static int	ft_atoi(const char **format)
 	abcdefgh%0--0d
 	if minus_left is avalable than zero_space ignored!!!
 */
+
 const char	*ft_format_parse(const char *format, t_keys *keys)
 {
 	keys->minus_left = 0;
 	keys->zero_space = 0;
 	keys->width = 0;
 	keys->dot_precision = -1;
-
 	while (*format == '-' || *format == '0')
 	{
 		if (*format == '-')
@@ -45,5 +46,5 @@ const char	*ft_format_parse(const char *format, t_keys *keys)
 		if (is_number(*format))
 			keys->dot_precision = ft_atoi(&format);
 	}
-	return format;
+	return (format);
 }
