@@ -26,14 +26,14 @@ typedef struct s_keys
 	int	width;
 }			t_keys;
 
-int	ft_write_str(char *str);
-int	ft_write_dig(long n, int base, int capital, t_keys *keys);
-int	ft_write_dig_unsigned(unsigned long n, int base, int capital);
-int	ft_write_chr(int c);
-int	ft_printf(const char	*format, ...);
-int	ft_handle_format(char specifier, va_list ap, t_keys *keys);
-int	ft_write_ptr(void *ptr);
+int			ft_write_str(char *str);
+int			ft_write_dig(long n, int base, int capital, t_keys *keys);
+int			ft_write_dig_unsigned(unsigned long n, int base, int capital);
+int			ft_write_chr(int c);
+int			ft_printf(const char	*format, ...);
+int			ft_write_ptr(void *ptr);
 const char	*ft_format_parse(const char *format, t_keys *keys);
+size_t		ft_strlen(const char *str);
 
 # if defined(__linux__)
 #  define DEFAULTNULL "(nil)"

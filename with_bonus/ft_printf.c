@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_handle_format(char specifier, va_list ap, t_keys *keys)
+static int	ft_handle_format(char specifier, va_list ap, t_keys *keys)
 {
 	int		count;
 
@@ -40,6 +40,14 @@ int	ft_handle_format(char specifier, va_list ap, t_keys *keys)
 	return (count);
 }
 
+static void	ft_format_init(t_keys *keys)
+{
+	keys->minus_left = 0;
+	keys->zero_space = 0;
+	keys->dot_precision = -1;
+	keys->width = 0;
+}
+
 int	ft_printf(const char	*format, ...)
 {
 	va_list	ap;
@@ -50,6 +58,7 @@ int	ft_printf(const char	*format, ...)
 		return (0);
 	va_start(ap, format);
 	count = 0;
+	ft_format_init(&keys);
 	while (*format != '\0')
 	{
 		if (*format == '%')

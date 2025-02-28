@@ -43,8 +43,10 @@ int	main(void)
 	// count = ft_printf(" %p ", -1);
 	// ft_printf("printed address in real one count: %d\n", count);
 
-	count = printf(" %p %p ", 0, 0);
-	printf("printed address in real one count: %d\n", count);
+	count = ft_printf(" %d ", -10);
+	printf("\nprinted address in my programm: %d\n", count);
+	count = printf(" %d ", -10);
+	printf("\nprinted address in real one   : %d\n", count);
 	return (0);
 }
 
