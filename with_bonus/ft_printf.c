@@ -22,7 +22,7 @@ static int	ft_handle_format(char specifier, va_list ap, t_keys *keys)
 	else if (specifier == 'c')
 		count += ft_write_chr(va_arg(ap, int));
 	else if (specifier == 's')
-		count += ft_write_str(va_arg(ap, char *));
+		count += ft_write_str(va_arg(ap, char *), keys);
 	else if (specifier == 'd')
 		count += ft_write_dig((long)va_arg(ap, int), 10, 0, keys);
 	else if (specifier == 'i')
@@ -34,7 +34,7 @@ static int	ft_handle_format(char specifier, va_list ap, t_keys *keys)
 	else if (specifier == 'X')
 		count += ft_write_dig_unsigned((long)va_arg(ap, unsigned int), 16, 1);
 	else if (specifier == 'p')
-		count += ft_write_ptr(va_arg(ap, void *));
+		count += ft_write_ptr(va_arg(ap, void *), keys);
 	else
 		count += write(1, &specifier, 1);
 	return (count);

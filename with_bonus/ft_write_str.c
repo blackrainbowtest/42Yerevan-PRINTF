@@ -12,17 +12,31 @@
 
 #include "ft_printf.h"
 
-int	ft_write_str(char *str)
+static int	ft_strnlen(char *str, int max)
+{
+	int	len;
+
+	len = 0;
+	while (str[len] && len < max)
+		len++;
+	return (len);
+}
+
+int	ft_write_str(char *str, t_keys *keys)
 {
 	int	count;
+	int	len;
+	int	padding;
 
-	count = 0;
 	if (!str)
 		str = "(null)";
-	while (*str)
-	{
-		count += ft_write_chr((int)*str);
-		++str;
-	}
+	len = ft_strnlen(str, (keys->dot_precision >= 0) ? keys->dot_precision : INT_MAX);
+	padding = (keys->width > len) ? keys->width - len : 0;
+	count = 0;
+	if (!keys->minus_left)
+		count += ft_write_padding(padding, ' ');
+	count += write(1, str, len);
+	if (keys->minus_left)
+		count += ft_write_padding(padding, ' ');
 	return (count);
 }

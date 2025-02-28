@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int	ft_write_ptr(void *ptr)
+int	ft_write_ptr(void *ptr, t_keys *keys)
 {
 	int	count;
 
 	if (!ptr)
 	{
-		count = ft_write_str(DEFAULTNULL);
+		count = ft_write_str(DEFAULTNULL, keys);
 		return (count);
 	}
 	count = write(1, "0x", 2);
