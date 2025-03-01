@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "utils/libft.h"
 
 static int	ft_fill_num(char *num, long *n, int base, char *symbols)
 {

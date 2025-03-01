@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 19:40:33 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/26 19:40:39 by aramarak         ###   ########.fr       */
+/*   Created: 2025/01/30 20:51:13 by aramarak          #+#    #+#             */
+/*   Updated: 2025/02/05 20:14:46 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
+	char	*tmp;
 	size_t	i;
 
-	if (!dest && !src)
-		return (NULL);
 	i = 0;
-	if (n != 0 || dest != src)
+	tmp = s;
+	while (i < n)
 	{
-		while (i < n)
-		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
+		tmp[i] = '\0';
+		i++;
 	}
-	return (dest);
 }

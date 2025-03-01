@@ -8,36 +8,38 @@ CFLAGS := -Wall -Werror -Wextra
 
 # C sources
 CSRC := ft_printf.c ft_write_chr.c ft_write_dig.c ft_write_ptr.c ft_write_str.c \
-		ft_format_parse.c ft_strlen.c ft_utils.c ft_write_dig_unsigned.c
+        ft_format_parse.c ft_utils.c ft_write_dig_unsigned.c \
+        utils/ft_bzero.c utils/ft_itoa.c utils/ft_strlen.c
 
-# Replace .c to .o
-OSRC = $(CSRC:.c=.o)
+# Replace .c to .o (with correct paths)
+OSRC := $(CSRC:%.c=%.o)
 
-# define rule to compile .c files to .o files using my settings here
-# full compile when libft.h changed
-%.o: %.c libft.h
+# Rule to compile .c to .o
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# define rule to create library
-# full compile when Makefile changed
-$(NAME): $(OSRC) Makefile
+utils/%.o: utils/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Rule to create the library
+$(NAME): $(OSRC)
 	ar -rcs $(NAME) $(OSRC)
 
-# define base target
+# Base target
 all: $(NAME)
 
-# no special packets for bonus
+# No special bonus implementation
 bonus: all
 
-# define rule to clean
+# Clean object files
 clean:
 	$(RM) $(OSRC)
 
-# define rule to full clean
+# Full clean (including library file)
 fclean: clean
 	$(RM) $(NAME)
 
-#rull recompile
+# Recompile everything
 re: fclean all
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all bonus

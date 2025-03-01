@@ -32,7 +32,6 @@ int			ft_write_chr(int c, t_keys *keys);
 int			ft_printf(const char	*format, ...);
 int			ft_write_ptr(void *ptr, t_keys *keys);
 const char	*ft_format_parse(const char *format, t_keys *keys);
-size_t		ft_strlen(const char *str);
 int			ft_write_padding(int padding, char c);
 int			ft_write_dig_unsigned(unsigned long n, int base, int capital, t_keys *keys);
 
