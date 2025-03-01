@@ -16,7 +16,7 @@
 int	ft_write_padding(int padding, char c, int diff)
 {
 	int	count;
-	
+
 	count = 0;
 	while ((padding--) - diff > 0)
 	{

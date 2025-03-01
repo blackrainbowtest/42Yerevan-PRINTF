@@ -62,4 +62,9 @@ test: re
 	@make fclean
 	@./my_program
 
+norm:
+	@echo "$(RED)Start norm without tmp files ...$(RESET)"
+	@norminette $(CSRC)
+	@echo "$(GREEN)DONE ...$(RESET)"
+
 .PHONY: clean fclean re all bonus

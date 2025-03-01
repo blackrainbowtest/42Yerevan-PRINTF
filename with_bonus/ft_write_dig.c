@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:37:51 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/23 16:38:25 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:52:21 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	ft_is_negative(long *n, int *is_negative)
 		*n = -(*n);
 	}
 }
+
 static int	ft_fill_num(char *num, long *n, int base, char *symbols)
 {
 	int	len;
@@ -51,7 +52,7 @@ static int	ft_fill_num(char *num, long *n, int base, char *symbols)
 static int	ft_write_left(t_keys *keys, int padding, int len)
 {
 	int	count;
-	int diff;
+	int	diff;
 
 	count = 0;
 	diff = 0;
