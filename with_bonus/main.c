@@ -16,37 +16,35 @@ int	main(void)
 {
 	int		count;
 
-	// count = ft_printf("%x\n", -1);
-	// ft_printf("printed chars count: %d\n", count);
-	// count = printf("%x\n", -1);
-	// printf("printed chars in real one count: %d\n", count);
-	// count = ft_printf("%x\n", INT_MIN);
-	// ft_printf("printed chars count: %d\n", count);
-	// count = printf("%x\n", INT_MIN);
-	// printf("printed chars in real one count: %d\n", count);
-	// count = ft_printf("%x\n", INT_MAX);
-	// ft_printf("printed chars count: %d\n", count);
-	// count = printf("%x\n", INT_MAX);
-	// printf("printed chars in real one count: %d\n", count);
-	// count = ft_printf("%x\n", 0);
-	// ft_printf("printed chars count: %d\n", count);
-	// count = printf("%x\n", 0);
-	// printf("printed chars in real one count: %d\n", count);
-
-	// count = printf(" NULL %s NULL ", NULL);
-	// printf("printed chars in real one count: %d\n", count);
-
-	// count = ft_printf(" NULL %s NULL ", NULL);
-	// ft_printf("printed chars in real one count: %d\n", count);
-
-
-	// count = ft_printf(" %p ", -1);
-	// ft_printf("printed address in real one count: %d\n", count);
-
-	count = ft_printf(" %d ", -10);
-	printf("\nprinted address in my programm: %d\n", count);
-	count = printf(" %d ", -10);
-	printf("\nprinted address in real one   : %d\n", count);
+	// testing . usually it used for minlength for text
+	printf("TESTING - '.' with '%%s' ;\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+	count = printf("|%.5s|\n", "Hello, world!");  // print first 5 symbols
+	printf("count is: %d;\n", count);
+	count = printf("|%.10s|\n", "Hi");			// Hi shorter than 10, thats why we can see all text
+	printf("count is: %d;\n", count);
+	count = printf("|%.0s|\n", "Hello");		// print 0 symbols — symbol does not be printed
+	printf("count is: %d;\n", count);
+	printf("\nmy_programm:\n");
+	count = ft_printf("|%.5s|\n", "Hello, world!");// print first 5 symbols
+	printf("count is: %d;\n", count);
+	count = ft_printf("|%.10s|\n", "Hi");			// Hi shorter than 10, thats why we can see all text
+	printf("count is: %d;\n", count);
+	count = ft_printf("|%.0s|\n", "Hello");		// print 0 symbols — symbol does not be printed
+	printf("count is: %d;\n", count);
+	printf("TESTING - '0' with '%%s' ;\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+	// gives Werror format error, 0 not used with strings
+	// printf("|%010s|\n", "Test");
+    // printf("|%05s|\n", "Hi");
+	printf("TESTING - '-' with '%%s' ;\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+	count = printf("|%-10s|\n", "Test");
+	printf("count is: %d;\n", count);
+    count = printf("|%-5s|\n", "Hi");
+	printf("count is: %d;\n", count);
+	printf("\nmy_programm:\n");
+	count = ft_printf("|%-10s|\n", "Test");
+	printf("count is: %d;\n", count);
+    count = ft_printf("|%-5s|\n", "Hi");
+	printf("count is: %d;\n", count);
 	return (0);
 }
 

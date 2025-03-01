@@ -18,10 +18,11 @@ int	ft_write_ptr(void *ptr, t_keys *keys)
 
 	if (!ptr)
 	{
-		count = ft_write_str(DEFAULTNULL, keys);
-		return (count);
+		if (keys->dot_precision == 0)
+			return (ft_write_str("", keys));
+		return (ft_write_str(DEFAULTNULL, keys));
 	}
 	count = write(1, "0x", 2);
-	count += ft_write_dig_unsigned((unsigned long)ptr, 16, 0);
+	count += ft_write_dig_unsigned((unsigned long)ptr, 16, 0, keys);
 	return (count);
 }

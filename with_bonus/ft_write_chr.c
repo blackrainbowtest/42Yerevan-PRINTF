@@ -12,7 +12,17 @@
 
 #include "ft_printf.h"
 
-int	ft_write_chr(int c)
+int	ft_write_chr(int c, t_keys *keys)
 {
-	return (write(1, &c, 1));
+	int	count;
+	int	padding;
+
+	padding = keys->width - 1;
+	count = 0;
+	if (!keys->minus_left)
+		count += ft_write_padding(padding, ' ');
+	count += write(1, &c, 1);
+	if (keys->minus_left)
+		count += ft_write_padding(padding, ' ');
+	return (count);
 }
