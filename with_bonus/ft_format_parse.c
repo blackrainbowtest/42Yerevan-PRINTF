@@ -58,5 +58,7 @@ const char	*ft_format_parse(const char *format, t_keys *keys)
 		if (is_number(*format))
 			keys->dot_precision = ft_atoi(&format);
 	}
+	if (keys->zero_space && keys->dot_precision >= 0)
+		keys->zero_space = 0;
 	return (format);
 }

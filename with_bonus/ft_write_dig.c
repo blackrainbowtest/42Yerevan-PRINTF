@@ -14,37 +14,33 @@
 #include "ft_colors.h"
 #include "utils/libft.h"
 
-static void	ft_is_negative(long *n, int *is_negative)
+static void	ft_is_negative(long *n, t_keys *keys)
 {
 	if (*n < 0)
 	{
-		*is_negative = 1;
+		keys->is_negative = 1;
 		*n = -(*n);
 	}
 }
 
-static int	ft_fill_num(char *num, long *n, int base, char *symbols)
+static int	ft_fill_num(char *num, long *n, int base, t_keys *keys)
 {
 	int	len;
 	int	count;
-	int	is_negative;
 
 	len = 0;
 	count = 0;
-	is_negative = 0;
 	if (*n == 0)
 		num[len++] = '0';
 	else
 	{
-		ft_is_negative(n, &is_negative);
+		ft_is_negative(n, keys);
 		while (*n)
 		{
-			num[len++] = symbols[*n % base];
-			*n /= base;
+			num[len++] = keys->symbols[*n % (long)base];
+			*n /= (long)base;
 		}
 	}
-	if (is_negative == 1)
-		num[len++] = '-';
 	num[len] = '\0';
 	return (count);
 }
@@ -58,9 +54,11 @@ static int	ft_write_left(t_keys *keys, int padding, int len)
 	diff = 0;
 	if (keys->dot_precision > len)
 		diff = keys->dot_precision - len;
+	if (keys->is_negative)
+		count += write(1, "-", 1);
 	if (!keys->minus_left)
 	{
-		if (keys->zero_space)
+		if (keys->zero_space || keys->dot_precision >= 0)
 			count += ft_write_padding(padding, '0', diff);
 		else
 			count += ft_write_padding(padding, ' ', diff);
@@ -71,23 +69,25 @@ static int	ft_write_left(t_keys *keys, int padding, int len)
 int	ft_write_dig(long n, int base, int cap, t_keys *keys)
 {
 	int		count;
-	char	*symbols;
 	char	num[20];
 	int		len;
 	int		padding;
 
-	symbols = "0123456789abcdef";
 	if (cap)
-		symbols = "0123456789ABCDEF";
+		keys->symbols = "0123456789ABCDEF";
 	count = 0;
-	count += ft_fill_num(num, &n, base, symbols);
+	count += ft_fill_num(num, &n, base, keys);
 	len = ft_strlen(num);
+	if (n == 0 && keys->dot_precision == 0 && !keys->is_negative)
+		len = 0;
 	padding = 0;
 	if (keys->width > len)
 		padding = keys->width - len;
 	count += ft_write_left(keys, padding, len);
 	while (len)
 		count += write(1, &num[--len], 1);
+	if (keys->is_negative)
+		--padding;
 	if (keys->minus_left)
 		count += ft_write_padding(padding, ' ', 0);
 	return (count);

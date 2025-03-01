@@ -15,7 +15,9 @@
 
 int	main(void)
 {
+
 	int		count;
+
 /*	hexadecimal format (0x...)
 	int a = 42;
 	void *ptr = &a;
@@ -111,8 +113,9 @@ int	main(void)
 /* 0 FLAG TESTINGS d, i, u, x, X) */
 
 /* with %d (Signed Integer) */
+/*
     int num = 42;
-    count = printf(GREEN "|%08d|\n" RESET, num);
+	count = printf(GREEN "|%08d|\n" RESET, num);
     printf(CYAN "Zero-padded d count: %d;\n" RESET, count);
     count = ft_printf(GREEN "|%08d|\n" RESET, num);
     printf(CYAN "Zero-padded d count: %d;\n" RESET, count);
@@ -121,10 +124,10 @@ int	main(void)
     printf(CYAN "Zero-padded d with precision count: %d;\n" RESET, count);
     count = ft_printf(GREEN "|%08.3d|\n" RESET, num);
     printf(CYAN "Zero-padded d with precision count: %d;\n" RESET, count);
-
+*/
 /* with %i (Signed Integer) */
 /*
-    num = -42;
+    int num = -42;
     count = printf(GREEN "|%08i|\n" RESET, num);
     printf(CYAN "Zero-padded i count: %d;\n" RESET, count);
     count = ft_printf(GREEN "|%08i|\n" RESET, num);
@@ -148,17 +151,103 @@ int	main(void)
 */
 /* with %X (Uppercase Hexadecimal) */
 /*
-    count = printf(GREEN "|%08X|\n" RESET, hexnum);
+    unsigned int hexnum = 0x2a;
+	count = printf(GREEN "|%08X|\n" RESET, hexnum);
     printf(CYAN "Zero-padded X count: %d;\n" RESET, count);
     count = ft_printf(GREEN "|%08X|\n" RESET, hexnum);
     printf(CYAN "Zero-padded X count: %d;\n" RESET, count);
 */
 
+/* DOT PRECISION TESTS (d, i, u, x, X) */
+
+/* with %d (Signed Integer) */
+/*
+int num = 42;
+count = printf(GREEN "|%.5d|\n" RESET, num);
+printf(CYAN "Precision d count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.5d|\n" RESET, num);
+printf(CYAN "Precision d count: %d;\n" RESET, count);
+
+count = printf(GREEN "|%.0d|\n" RESET, 0);
+printf(CYAN "Precision d with 0 count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.0d|\n" RESET, 0);
+printf(CYAN "Precision d with 0 count: %d;\n" RESET, count);
+*/
+/* with %i (Signed Integer) */
+/*
+int num = -42;
+count = printf(GREEN "|%.6i|\n" RESET, num);
+printf(CYAN "Precision i count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.6i|\n" RESET, num);
+printf(CYAN "Precision i count: %d;\n" RESET, count);
+
+count = printf("|%-5d|\n", -1);
+printf(CYAN "Precision i with 0 count: %d;\n" RESET, count);
+count = ft_printf("|%-5d|\n", -1);
+printf(CYAN "Precision i with 0 count: %d;\n" RESET, count);
+*/
+
+// count = printf(RESET "5Lp %us*W8T%iZG\fMs,|!%p=%XQ({x~%icKI]b<=9%sOF\-<F']m%XqEF1So,%%0\r~:o<", 1942086419, -494265451, (void
+// *)9152984833886920443, -1560051102, 720965491, "2oOrt'7On4#Q\\\fT!c|Al]2qyC.\n``{B\ffyj\fTR}CWX%Pc.O\t#E)$~(NIR~", -233551413);
+// printf(CYAN "\n\nPrecision i with 0 count: %d;\n" RESET, count);
+// count = ft_printf(RESET "5Lp %us*W8T%iZG\fMs,|!%p=%XQ({x~%icKI]b<=9%sOF\-<F']m%XqEF1So,%%0\r~:o<", 1942086419, -494265451, (void
+// *)9152984833886920443, -1560051102, 720965491, "2oOrt'7On4#Q\\\fT!c|Al]2qyC.\n``{B\ffyj\fTR}CWX%Pc.O\t#E)$~(NIR~", -233551413);
+// printf(CYAN "\n\nPrecision i with 0 count: %d;\n" RESET, count);
+
+int a = printf("5Lp %us*W8T%iZG\fMs,|!%p=%XQ({x~%icKI]b<=9%sOF\-<F']m%XqEF1So,\r~:o<",  
+    1942086419, -494265451, (void*)9152984833886920443, -1560051102, 720965491, "2oOrt'7On4#Q\\\fT!c|Al]2qyC.\n``{B\ffyj\fTR}CWX%Pc.O\t#E)$~(NIR~", -233551413);
+int b = ft_printf("5Lp %us*W8T%iZG\fMs,|!%p=%XQ({x~%icKI]b<=9%sOF\-<F']m%XqEF1So,\r~:o<",  
+    1942086419, -494265451, (void*)9152984833886920443, -1560051102, 720965491, "2oOrt'7On4#Q\\\fT!c|Al]2qyC.\n``{B\ffyj\fTR}CWX%Pc.O\t#E)$~(NIR~", -233551413);
+printf("\nprintf: %d, ft_printf: %d\n", a, b);
 
 
 
 
 
+
+
+
+
+
+/* with %u (Unsigned Integer) */
+/*
+unsigned int unum = 42;
+count = printf(GREEN "|%.4u|\n" RESET, unum);
+printf(CYAN "Precision u count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.4u|\n" RESET, unum);
+printf(CYAN "Precision u count: %d;\n" RESET, count);
+
+count = printf(GREEN "|%.0u|\n" RESET, 0);
+printf(CYAN "Precision u with 0 count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.0u|\n" RESET, 0);
+printf(CYAN "Precision u with 0 count: %d;\n" RESET, count);
+*/
+/* with %x (Lowercase Hexadecimal) */
+/*
+unsigned int hexnum = 0x2a;
+count = printf(GREEN "|%.5x|\n" RESET, hexnum);
+printf(CYAN "Precision x count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.5x|\n" RESET, hexnum);
+printf(CYAN "Precision x count: %d;\n" RESET, count);
+
+count = printf(GREEN "|%.0x|\n" RESET, 0);
+printf(CYAN "Precision x with 0 count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.0x|\n" RESET, 0);
+printf(CYAN "Precision x with 0 count: %d;\n" RESET, count);
+*/
+/* with %X (Uppercase Hexadecimal) */
+/*
+hexnum = 0x2a;
+count = printf(GREEN "|%.3X|\n" RESET, hexnum);
+printf(CYAN "Precision X count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.3X|\n" RESET, hexnum);
+printf(CYAN "Precision X count: %d;\n" RESET, count);
+
+count = printf(GREEN "|%.0X|\n" RESET, 0);
+printf(CYAN "Precision X with 0 count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%.0X|\n" RESET, 0);
+printf(CYAN "Precision X with 0 count: %d;\n" RESET, count);
+*/
 
 	return (0);
 }

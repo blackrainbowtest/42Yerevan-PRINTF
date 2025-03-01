@@ -29,16 +29,14 @@ int	ft_write_dig_uns(unsigned long n, int base, int capital, t_keys *keys)
 {
 	int		len;
 	char	buff[32];
-	char	*symbols;
 
-	symbols = "0123456789abcdef";
 	if (capital)
-		symbols = "0123456789ABCDEF";
+		keys->symbols = "0123456789ABCDEF";
 	len = ft_get_num_len(n, base);
 	buff[len] = '\0';
 	while (len--)
 	{
-		buff[len] = symbols[n % base];
+		buff[len] = keys->symbols[n % base];
 		n = n / base;
 	}
 	return (ft_write_str(buff, keys));

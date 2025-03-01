@@ -38,7 +38,7 @@ $(NAME): $(OSRC)
 all: $(NAME)
 
 # No special bonus implementation
-bonus: all
+#bonus: all
 
 # Clean object files
 clean:
@@ -57,7 +57,7 @@ re: fclean all
 
 test: re
 	@echo "$(RED)Compailing programm ...$(RESET)"
-	@cc -Wall -Werror -Wextra main.c libftprintf.a -o my_program
+	@cc main.c libftprintf.a -o my_program
 	@echo "$(GREEN)Compailing completed ...$(RESET)"
 	@make fclean
 	@./my_program

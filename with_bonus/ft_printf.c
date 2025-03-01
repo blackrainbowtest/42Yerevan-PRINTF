@@ -46,6 +46,8 @@ static void	ft_format_init(t_keys *keys)
 	keys->zero_space = 0;
 	keys->dot_precision = -1;
 	keys->width = 0;
+	keys->symbols = "0123456789abcdef";
+	keys->is_negative = 0;
 }
 
 int	ft_printf(const char	*format, ...)

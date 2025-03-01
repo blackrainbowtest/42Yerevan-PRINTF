@@ -20,10 +20,12 @@
 
 typedef struct s_keys
 {
-	int	minus_left;
-	int	zero_space;
-	int	dot_precision;
-	int	width;
+	int		minus_left;
+	int		zero_space;
+	int		dot_precision;
+	int		width;
+	int 	is_negative;
+	char	*symbols;
 }			t_keys;
 
 int			ft_write_str(char *str, t_keys *keys);
