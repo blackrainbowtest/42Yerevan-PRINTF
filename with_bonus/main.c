@@ -11,75 +11,81 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_colors.h"
 
 int	main(void)
 {
 	int		count;
-	/*
-	// testing . usually it used for minlength for text
-	printf("TESTING - '.' with '%%s' ;\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-	count = printf("|%.5s|\n", "Hello, world!");  // print first 5 symbols
-	printf("count is: %d;\n", count);
-	count = printf("|%.10s|\n", "Hi");			// Hi shorter than 10, thats why we can see all text
-	printf("count is: %d;\n", count);
-	count = printf("|%.0s|\n", "Hello");		// print 0 symbols — symbol does not be printed
-	printf("count is: %d;\n", count);
-	printf("\nmy_programm:\n");
-	count = ft_printf("|%.5s|\n", "Hello, world!");// print first 5 symbols
-	printf("count is: %d;\n", count);
-	count = ft_printf("|%.10s|\n", "Hi");			// Hi shorter than 10, thats why we can see all text
-	printf("count is: %d;\n", count);
-	count = ft_printf("|%.0s|\n", "Hello");		// print 0 symbols — symbol does not be printed
-	printf("count is: %d;\n", count);
-	printf("TESTING - '0' with '%%s' ;\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-	// gives Werror format error, 0 not used with strings
-	// printf("|%010s|\n", "Test");
-    // printf("|%05s|\n", "Hi");
-	printf("TESTING - '-' with '%%s' ;\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-	count = printf("|%-10s|\n", "Test");
-	printf("count is: %d;\n", count);
-    count = printf("|%-5s|\n", "Hi");
-	printf("count is: %d;\n", count);
-	printf("\nmy_programm:\n");
-	count = ft_printf("|%-10s|\n", "Test");
-	printf("count is: %d;\n", count);
-    count = ft_printf("|%-5s|\n", "Hi");
-	printf("count is: %d;\n", count);
-	*/
+/*	hexadecimal format (0x...)
+	int a = 42;
+	void *ptr = &a;
+	void *null_ptr = NULL;
 
-	printf("TESTING %%d and %%i ;\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+	count = printf(GREEN "|%p|\n" RESET, ptr);
+	printf(CYAN "Pointer count is: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%p|\n" RESET, ptr);
+	printf(CYAN "Pointer count is: %d;\n" RESET, count);
 
-    // base input
-    count = printf("|%d|\n", 42);
-    printf("42 count is: %d;\n", count);
-    count = ft_printf("|%d|\n", 42);
-    printf("42 count is: %d;\n", count);
+	count = printf(GREEN "|%p|\n" RESET, null_ptr);
+	printf(CYAN "NULL pointer count is: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%p|\n" RESET, null_ptr);
+	printf(CYAN "NULL pointer count is: %d;\n" RESET, count);
+*/
+/*
+	unsigned int u1 = 42;
+	unsigned int u2 = 4294967295; // Max for 32-bit unsigned int
 
-    count = printf("|%i|\n", -42);
-    printf("-42 count is: %d;\n", count);
-	count = ft_printf("|%i|\n", -42);
-    printf("-42 count is: %d;\n", count);
+	count = printf(GREEN "|%u|\n" RESET, u1);
+	printf(CYAN "Unsigned 42 count is: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%u|\n" RESET, u1);
+	printf(CYAN "Unsigned 42 count is: %d;\n" RESET, count);
 
-    // Ширина
-    count = printf("|%10d|\n", 42);
-    printf("d width count is: %d;\n", count);
-	count = ft_printf("|%10d|\n", 42);
-    printf("d width count is: %d;\n", count);
+	count = printf(GREEN "|%u|\n" RESET, u2);
+	printf(CYAN "Unsigned max count is: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%u|\n" RESET, u2);
+	printf(CYAN "Unsigned max count is: %d;\n" RESET, count);
+*/
+/*
+	int hex1 = 42;
+	int hex2 = 255;
+	int hex3 = 4096;
 
-    count = printf("|%10i|\n", -42);
-    printf("i width count is: %d;\n", count);
-    count = ft_printf("|%10i|\n", -42);
-    printf("i width count is: %d;\n", count);
+	count = printf(GREEN "|%x|\n" RESET, hex1);
+	printf(CYAN "Hex 42 count is: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%x|\n" RESET, hex1);
+	printf(CYAN "Hex 42 count is: %d;\n" RESET, count);
 
-    // Выравнивание влево
-    count = printf("|%-10d|\n", 42);
-    printf("count is: %d;\n", count);
-    count = ft_printf("|%-10d|\n", 42);
-    printf("count is: %d;\n", count);
-    count = printf("|%-10i|\n", -42);
-    printf("count is: %d;\n", count);
-    count = ft_printf("|%-10i|\n", -42);
-    printf("count is: %d;\n", count);
+	count = printf(GREEN "|%X|\n" RESET, hex2);
+	printf(CYAN "Hex 255 count is: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%X|\n" RESET, hex2);
+	printf(CYAN "Hex 255 count is: %d;\n" RESET, count);
+
+	count = printf(GREEN "|%x|\n" RESET, hex3);
+	printf(CYAN "Hex 4096 count is: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%x|\n" RESET, hex3);
+	printf(CYAN "Hex 4096 count is: %d;\n" RESET, count);
+*/
+
+/* MINUS FLAG TESTINGS */
+/*
+	count = printf(GREEN "|%-10d|\n" RESET, 42);
+	printf(CYAN "Left-aligned d count: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%-10d|\n" RESET, 42);
+	printf(CYAN "Left-aligned d count: %d;\n" RESET, count);
+
+	count = printf(GREEN "|%-10i|\n" RESET, -42);
+	printf(CYAN "Left-aligned i count: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%-10i|\n" RESET, -42);
+	printf(CYAN "Left-aligned i count: %d;\n" RESET, count);
+*/
+
+count = printf(GREEN "|%-10u|\n" RESET, 42);
+printf(CYAN "Left-aligned u count: %d;\n" RESET, count);
+count = ft_printf(GREEN "|%-10u|\n" RESET, 42);
+printf(CYAN "Left-aligned u count: %d;\n" RESET, count);
+
+
+
 
 	return (0);
 }

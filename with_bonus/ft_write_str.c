@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:38:58 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/23 16:39:00 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:15:23 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,14 @@ int	ft_write_str(char *str, t_keys *keys)
 
 	if (!str)
 		str = "(null)";
-	len = ft_strnlen(str, (keys->dot_precision >= 0) ? keys->dot_precision : INT_MAX);
-	padding = (keys->width > len) ? keys->width - len : 0;
+	if (keys->dot_precision >= 0)
+		len = ft_strnlen(str, keys->dot_precision);
+	else
+		len = ft_strnlen(str, INT_MAX);
+	if (keys->width > len)
+		padding = keys->width - len;
+	else
+		padding = 0;
 	count = 0;
 	if (!keys->minus_left)
 		count += ft_write_padding(padding, ' ');

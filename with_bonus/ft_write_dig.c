@@ -13,28 +13,36 @@
 #include "ft_printf.h"
 #include "utils/libft.h"
 
+static void	ft_is_negative(long *n, int *is_negative)
+{
+	if (*n < 0)
+	{
+		*is_negative = 1;
+		*n = -(*n);
+	}
+}
 static int	ft_fill_num(char *num, long *n, int base, char *symbols)
 {
 	int	len;
 	int	count;
+	int	is_negative;
 
 	len = 0;
 	count = 0;
+	is_negative = 0;
 	if (*n == 0)
 		num[len++] = '0';
 	else
 	{
-		if (*n < 0)
-		{
-			count += write(1, "-", 1);
-			*n = -(*n);
-		}
+		ft_is_negative(n, &is_negative);
 		while (*n)
 		{
 			num[len++] = symbols[*n % base];
 			*n /= base;
 		}
 	}
+	if (is_negative == 1)
+		num[len++] = '-';
 	num[len] = '\0';
 	return (count);
 }

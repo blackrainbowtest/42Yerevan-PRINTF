@@ -1,3 +1,10 @@
+# Define color codes
+RED    := \033[31m
+GREEN  := \033[32m
+YELLOW := \033[33m
+BLUE   := \033[34m
+RESET  := \033[0m
+
 NAME := libftprintf.a
 
 RM := rm -f
@@ -16,14 +23,16 @@ OSRC := $(CSRC:%.c=%.o)
 
 # Rule to compile .c to .o
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 utils/%.o: utils/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Rule to create the library
 $(NAME): $(OSRC)
-	ar -rcs $(NAME) $(OSRC)
+	@echo "$(YELLOW)Making archive file ...$(RESET)"
+	@ar -rcs $(NAME) $(OSRC)
+	@echo "$(GREEN)Making completed ...$(RESET)"
 
 # Base target
 all: $(NAME)
@@ -33,13 +42,24 @@ bonus: all
 
 # Clean object files
 clean:
-	$(RM) $(OSRC)
+	@echo "$(BLUE)Starting cleaning object files ...$(RESET)"
+	@$(RM) $(OSRC)
+	@echo "$(GREEN)Cleaning completed ...$(RESET)"
 
 # Full clean (including library file)
 fclean: clean
-	$(RM) $(NAME)
+	@echo "$(BLUE)Starting cleaning archive file ...$(RESET)"
+	@$(RM) $(NAME)
+	@echo "$(GREEN)Cleaning completed ...$(RESET)"
 
 # Recompile everything
 re: fclean all
+
+test: re
+	@echo "$(RED)Compailing programm ...$(RESET)"
+	@cc -Wall -Werror -Wextra main.c libftprintf.a -o my_program
+	@echo "$(GREEN)Compailing completed ...$(RESET)"
+	@make fclean
+	@./my_program
 
 .PHONY: clean fclean re all bonus

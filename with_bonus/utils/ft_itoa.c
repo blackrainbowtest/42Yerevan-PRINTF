@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:12:34 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/07 20:03:02 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:03:33 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_itoa(int n)
 
 	len = ft_num_len(n);
 	str = (char *)malloc(len + 1);
-    ft_bzero(str, len + 1);
+	ft_bzero(str, len + 1);
 	if (!str)
 		return (NULL);
 	if (n == 0)
