@@ -40,9 +40,9 @@ int	ft_write_str(char *str, t_keys *keys)
 		padding = 0;
 	count = 0;
 	if (!keys->minus_left)
-		count += ft_write_padding(padding, ' ');
+		count += ft_write_padding(padding, ' ', 0);
 	count += write(1, str, len);
 	if (keys->minus_left)
-		count += ft_write_padding(padding, ' ');
+		count += ft_write_padding(padding, ' ', 0);
 	return (count);
 }

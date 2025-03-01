@@ -23,6 +23,8 @@ int	ft_write_ptr(void *ptr, t_keys *keys)
 		return (ft_write_str(DEFAULTNULL, keys));
 	}
 	count = write(1, "0x", 2);
+	if (keys->width >= 2)
+		keys->width -= 2;
 	count += ft_write_dig_uns((unsigned long)ptr, 16, 0, keys);
 	return (count);
 }

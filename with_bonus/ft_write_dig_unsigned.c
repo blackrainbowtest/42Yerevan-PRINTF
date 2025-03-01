@@ -12,17 +12,34 @@
 
 #include "ft_printf.h"
 
+static int	ft_get_num_len(unsigned long n, int base)
+{
+	int	len;
+
+	len = 1;
+	while (n >= (unsigned)base)
+	{
+		n = n / base;
+		len++;
+	}
+	return (len);
+}
+
 int	ft_write_dig_uns(unsigned long n, int base, int capital, t_keys *keys)
 {
-	int		count;
+	int		len;
+	char	buff[32];
 	char	*symbols;
 
 	symbols = "0123456789abcdef";
 	if (capital)
 		symbols = "0123456789ABCDEF";
-	if (n < (unsigned)base)
-		return (ft_write_chr(symbols[n], keys));
-	count = ft_write_dig_uns(n / (unsigned)base, base, capital, keys);
-	return (count + ft_write_dig_uns(n % \
-			(unsigned)base, base, capital, keys));
+	len = ft_get_num_len(n, base);
+	buff[len] = '\0';
+	while (len--)
+	{
+		buff[len] = symbols[n % base];
+		n = n / base;
+	}
+	return (ft_write_str(buff, keys));
 }

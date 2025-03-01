@@ -20,9 +20,9 @@ int	ft_write_chr(int c, t_keys *keys)
 	padding = keys->width - 1;
 	count = 0;
 	if (!keys->minus_left)
-		count += ft_write_padding(padding, ' ');
+		count += ft_write_padding(padding, ' ', 0);
 	count += write(1, &c, 1);
 	if (keys->minus_left)
-		count += ft_write_padding(padding, ' ');
+		count += ft_write_padding(padding, ' ', 0);
 	return (count);
 }

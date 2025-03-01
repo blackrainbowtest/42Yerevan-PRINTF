@@ -11,13 +11,21 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_colors.h"
 
-int	ft_write_padding(int padding, char c)
+int	ft_write_padding(int padding, char c, int diff)
 {
 	int	count;
-
+	
 	count = 0;
-	while (padding-- > 0)
+	while ((padding--) - diff > 0)
+	{
+		if (diff > 0)
+			count += write(1, " ", 1);
+		else
+			count += write(1, &c, 1);
+	}
+	while (diff-- > 0)
 		count += write(1, &c, 1);
 	return (count);
 }

@@ -67,6 +67,8 @@ int	main(void)
 */
 
 /* MINUS FLAG TESTINGS */
+
+/* with %d and %i */
 /*
 	count = printf(GREEN "|%-10d|\n" RESET, 42);
 	printf(CYAN "Left-aligned d count: %d;\n" RESET, count);
@@ -78,11 +80,82 @@ int	main(void)
 	count = ft_printf(GREEN "|%-10i|\n" RESET, -42);
 	printf(CYAN "Left-aligned i count: %d;\n" RESET, count);
 */
+/* with %u (Unsigned) */
+/*
+	count = printf(GREEN "|%-10u|\n" RESET, 42);
+	printf(CYAN "Left-aligned u count: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%-10u|\n" RESET, 42);
+	printf(CYAN "Left-aligned u count: %d;\n" RESET, count);
+*/
+/* with %x and %X */
+/*
+	count = printf(GREEN "|%-10x|\n" RESET, 255);
+	printf(CYAN "Left-aligned x count: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%-10x|\n" RESET, 255);
+	printf(CYAN "Left-aligned x count: %d;\n" RESET, count);
 
-count = printf(GREEN "|%-10u|\n" RESET, 42);
-printf(CYAN "Left-aligned u count: %d;\n" RESET, count);
-count = ft_printf(GREEN "|%-10u|\n" RESET, 42);
-printf(CYAN "Left-aligned u count: %d;\n" RESET, count);
+	count = printf(GREEN "|%-10X|\n" RESET, 255);
+	printf(CYAN "Left-aligned X count: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%-10X|\n" RESET, 255);
+	printf(CYAN "Left-aligned X count: %d;\n" RESET, count);
+*/
+/* with %p (Pointers) */
+/*
+	void *ptr = (void *)0x1234;
+	count = printf(GREEN "|%-20p|\n" RESET, ptr);
+	printf(CYAN "Left-aligned p count: %d;\n" RESET, count);
+	count = ft_printf(GREEN "|%-20p|\n" RESET, ptr);
+	printf(CYAN "Left-aligned p count: %d;\n" RESET, count);
+*/
+
+/* 0 FLAG TESTINGS d, i, u, x, X) */
+
+/* with %d (Signed Integer) */
+    int num = 42;
+    count = printf(GREEN "|%08d|\n" RESET, num);
+    printf(CYAN "Zero-padded d count: %d;\n" RESET, count);
+    count = ft_printf(GREEN "|%08d|\n" RESET, num);
+    printf(CYAN "Zero-padded d count: %d;\n" RESET, count);
+
+    count = printf(GREEN "|%08.3d|\n" RESET, num);
+    printf(CYAN "Zero-padded d with precision count: %d;\n" RESET, count);
+    count = ft_printf(GREEN "|%08.3d|\n" RESET, num);
+    printf(CYAN "Zero-padded d with precision count: %d;\n" RESET, count);
+
+/* with %i (Signed Integer) */
+/*
+    num = -42;
+    count = printf(GREEN "|%08i|\n" RESET, num);
+    printf(CYAN "Zero-padded i count: %d;\n" RESET, count);
+    count = ft_printf(GREEN "|%08i|\n" RESET, num);
+    printf(CYAN "Zero-padded i count: %d;\n" RESET, count);
+*/
+/* with %u (Unsigned Integer) */
+/*
+    unsigned int unum = 42;
+    count = printf(GREEN "|%08u|\n" RESET, unum);
+    printf(CYAN "Zero-padded u count: %d;\n" RESET, count);
+    count = ft_printf(GREEN "|%08u|\n" RESET, unum);
+    printf(CYAN "Zero-padded u count: %d;\n" RESET, count);
+*/
+/* with %x (Lowercase Hexadecimal) */
+/*
+    unsigned int hexnum = 0x2a;
+    count = printf(GREEN "|%08x|\n" RESET, hexnum);
+    printf(CYAN "Zero-padded x count: %d;\n" RESET, count);
+    count = ft_printf(GREEN "|%08x|\n" RESET, hexnum);
+    printf(CYAN "Zero-padded x count: %d;\n" RESET, count);
+*/
+/* with %X (Uppercase Hexadecimal) */
+/*
+    count = printf(GREEN "|%08X|\n" RESET, hexnum);
+    printf(CYAN "Zero-padded X count: %d;\n" RESET, count);
+    count = ft_printf(GREEN "|%08X|\n" RESET, hexnum);
+    printf(CYAN "Zero-padded X count: %d;\n" RESET, count);
+*/
+
+
+
 
 
 
