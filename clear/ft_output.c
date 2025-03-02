@@ -52,18 +52,17 @@ int	ft_putstr(char *str, t_keys *keys)
 	return (count);
 }
 
-int	ft_putnbr(int n, t_keys *keys, int base)
+int	ft_putnbr(int n, t_keys *keys, int base, int sign)
 {
-	int		count;
-	long	num;
+	int				count;
+	unsigned long	num;
 
 	count = 0;
-	num = n;
-	if (num < 0)
-	{
-		num *= -1;
+	num = (unsigned)n;
+	if (!sign && n < 0)
+		num = (unsigned)(-n);
+	if (n < 0 && (num <= INT_MAX || num == 2147483648) && !sign)
 		keys->is_negative = 1;
-	}
 	if (keys->precision == 0 && num == 0)
 	{
 		while (keys->width-- > 0)

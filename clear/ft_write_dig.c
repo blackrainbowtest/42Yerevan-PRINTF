@@ -57,7 +57,8 @@ static int	ft_zero_fill(t_keys *keys, int len)
 	return (zero_fill);
 }
 
-static int	ft_get_revers_num(t_keys *keys, char *num, long n, int base)
+static int	ft_get_revers_num(t_keys *keys, char *num, \
+unsigned long n, int base)
 {
 	int	len;
 
@@ -66,22 +67,17 @@ static int	ft_get_revers_num(t_keys *keys, char *num, long n, int base)
 		num[len++] = '0';
 	else
 	{
-		if (n < 0)
-		{
-			keys->is_negative = 1;
-			n = -n;
-		}
 		while (n)
 		{
-			num[len++] = keys->symbols[n % base];
-			n /= base;
+			num[len++] = keys->symbols[n % (unsigned)base];
+			n /= (unsigned)base;
 		}
 	}
 	num[len] = '\0';
 	return (len);
 }
 
-int	ft_write_dig(long n, int base, int capital, t_keys *keys)
+int	ft_write_dig(unsigned long n, int base, int capital, t_keys *keys)
 {
 	int		count;
 	char	num[20];

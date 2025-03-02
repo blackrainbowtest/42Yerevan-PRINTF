@@ -22,9 +22,9 @@ static int	ft_select_format(const char *format, va_list args, t_keys *keys)
 	else if (*format == 's')
 		count += ft_putstr(va_arg(args, char *), keys);
 	else if (*format == 'd' || *format == 'i')
-		count += ft_putnbr(va_arg(args, int), keys, 10);
+		count += ft_putnbr(va_arg(args, int), keys, 10, 0);
 	else if (*format == 'u')
-		count += ft_putnbr(va_arg(args, unsigned int), keys, 10);
+		count += ft_putnbr(va_arg(args, unsigned int), keys, 10, 1);
 	else if (*format == 'x')
 		count += ft_puthex(va_arg(args, unsigned int), 0, keys, 16);
 	else if (*format == 'X')
