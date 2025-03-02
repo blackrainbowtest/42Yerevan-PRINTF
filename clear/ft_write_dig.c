@@ -42,16 +42,25 @@ void	ft_reverse(char *str, int len)
 	}
 }
 
-int	ft_write_dig(long n, int base, int capital, t_keys *keys)
+static int	ft_zero_fill(t_keys *keys, int len)
 {
-	int		count;
-	char	num[20];
-	int		len;
-	int		padding;
-	int		zero_fill;
 	int		use_zero_padding;
+	int		zero_fill;
 
-	count = 0;
+	use_zero_padding = keys->zero_padding && (keys->precision < 0) \
+						&& !keys->left_align;
+	zero_fill = 0;
+	if (keys->precision > len)
+		zero_fill = keys->precision - len;
+	else if (use_zero_padding && keys->width > len + keys->is_negative)
+		zero_fill = keys->width - (len + keys->is_negative);
+	return (zero_fill);
+}
+
+static int	ft_get_revers_num(t_keys *keys, char *num, long n, int base)
+{
+	int	len;
+
 	len = 0;
 	if (n == 0)
 		num[len++] = '0';
@@ -69,12 +78,20 @@ int	ft_write_dig(long n, int base, int capital, t_keys *keys)
 		}
 	}
 	num[len] = '\0';
-	use_zero_padding = keys->zero_padding && keys->precision < 0 && !keys->left_align;
-	zero_fill = 0;
-	if (keys->precision > len)
-		zero_fill = keys->precision - len;
-	else if (use_zero_padding && keys->width > len + keys->is_negative)
-		zero_fill = keys->width - (len + keys->is_negative);
+	return (len);
+}
+
+int	ft_write_dig(long n, int base, int capital, t_keys *keys)
+{
+	int		count;
+	char	num[20];
+	int		len;
+	int		padding;
+	int		zero_fill;
+
+	count = 0;
+	len = ft_get_revers_num(keys, num, n, base);
+	zero_fill = ft_zero_fill(keys, len);
 	padding = 0;
 	if (keys->width > len + zero_fill + keys->is_negative)
 		padding = keys->width - (len + zero_fill + keys->is_negative);
