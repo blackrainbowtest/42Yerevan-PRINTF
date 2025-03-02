@@ -40,6 +40,9 @@ $(NAME): $(OSRC)
 # Base target
 all: $(NAME)
 
+# No special bonus implementation just call all again
+bonus: all
+
 # Clean object files
 clean:
 	$(HIDE)echo "$(BLUE)Starting cleaning object files ...$(RESET)"
