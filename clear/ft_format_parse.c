@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format_parse.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/02 13:53:24 by aramarak          #+#    #+#             */
+/*   Updated: 2025/03/02 13:53:30 by aramarak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static const char *	ft_get_align_padding(const char *format, t_keys *keys)
+static const char	*ft_get_align_padding(const char *format, t_keys *keys)
 {
 	while (*format == '-' || *format == '0')
 	{
@@ -16,7 +28,7 @@ static const char *	ft_get_align_padding(const char *format, t_keys *keys)
 	return (format);
 }
 
-static const char *	ft_get_width(const char *format, t_keys *keys)
+static const char	*ft_get_width(const char *format, t_keys *keys)
 {
 	while (*format >= '0' && *format <= '9')
 	{
@@ -26,7 +38,7 @@ static const char *	ft_get_width(const char *format, t_keys *keys)
 	return (format);
 }
 
-static const char * ft_get_precision(const char *format, t_keys *keys)
+static const char	*ft_get_precision(const char *format, t_keys *keys)
 {
 	if (*format == '.')
 	{
@@ -40,6 +52,7 @@ static const char * ft_get_precision(const char *format, t_keys *keys)
 	}
 	return (format);
 }
+
 const char	*ft_format_parse(const char *format, t_keys *keys)
 {
 	format = ft_get_align_padding(format, keys);

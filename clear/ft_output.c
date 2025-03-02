@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_output.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/02 13:48:07 by aramarak          #+#    #+#             */
+/*   Updated: 2025/03/02 13:49:23 by aramarak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int ft_putchar(int c, t_keys *keys)
+int	ft_putchar(int c, t_keys *keys)
 {
 	int	count;
 
@@ -68,15 +80,6 @@ int	ft_puthex(unsigned int n, int is_upper, t_keys *keys, int base)
 	char	*hex;
 
 	count = 0;
-	// if (keys->precision == 0 && n == 0)
-	// {
-	// 	while (keys->width-- > 0)
-	// 		count += write(1, " ", 1);
-	// 	return (count);
-	// }
-	// hex = ft_itoa_base(n, 16, is_upper);
-	// count += ft_putstr(hex, keys);
-	// free(hex);
 	return (count);
 }
 
@@ -86,15 +89,5 @@ int	ft_putptr(void *ptr, t_keys *keys, int base)
 	char	*hex;
 
 	count = 0;
-	if (keys->precision == 0 && ptr == NULL)
-	{
-	// 	while (keys->width-- > 0)
-	// 		count += write(1, " ", 1);
-	// 	return (count);
-	}
-	// hex = ft_itoa_base((unsigned long)ptr, 16, 0);
-	// count += write(1, "0x", 2);
-	// count += ft_putstr(hex, keys);
-	// free(hex);
 	return (count);
 }
