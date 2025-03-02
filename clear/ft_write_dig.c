@@ -24,24 +24,6 @@ int	ft_write_padding(int padding, char c, int diff)
 	return (count);
 }
 
-void	ft_reverse(char *str, int len)
-{
-	int		start;
-	int		end;
-	char	temp;
-
-	start = 0;
-	end = len - 1;
-	while (start < end)
-	{
-		temp = *(str + start);
-		*(str + start) = *(str + end);
-		*(str + end) = temp;
-		start++;
-		end--;
-	}
-}
-
 static int	ft_zero_fill(t_keys *keys, int len)
 {
 	int		use_zero_padding;
@@ -77,15 +59,18 @@ unsigned long n, int base)
 	return (len);
 }
 
-int	ft_write_dig(unsigned long n, int base, int capital, t_keys *keys)
+int	ft_write_dig(unsigned long n, int base, t_keys *keys)
 {
 	int		count;
-	char	num[20];
+	char	*num;
 	int		len;
 	int		padding;
 	int		zero_fill;
 
 	count = 0;
+	num = (char *)malloc(sizeof(char) * 100);
+	if (!num)
+		return (0);
 	len = ft_get_revers_num(keys, num, n, base);
 	zero_fill = ft_zero_fill(keys, len);
 	padding = 0;
@@ -96,9 +81,10 @@ int	ft_write_dig(unsigned long n, int base, int capital, t_keys *keys)
 	if (keys->is_negative)
 		count += write(1, "-", 1);
 	count += ft_write_padding(zero_fill, '0', 0);
-	ft_reverse(num, len);
+	num = ft_reverse_str(num, len);
 	count += write(1, num, len);
 	if (keys->left_align)
 		count += ft_write_padding(padding, ' ', 0);
+	free(num);
 	return (count);
 }

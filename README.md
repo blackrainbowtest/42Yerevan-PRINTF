@@ -221,6 +221,27 @@
 | `%.5X` | `42` | `0002A` | Լրացվում է 0-երով մինչև 5 նիշ |
 | `%.0X` | `0` | `` (դատարկ) | Զրոն չի տպվում, եթե ճշտությունը 0 է |
 
+| Mandatory        |
+| Category | Status |
+|----------|--------|
+| c        | <span style="color:green;">1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK</span> |
+| s        | <span style="color:green;">1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK</span> |
+| p        | <span style="color:green;">1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK</span> |
+| d        | <span style="color:green;">1.OK 2.OK 3.OK ... 29.OK</span> |
+| i        | <span style="color:green;">1.OK 2.OK 3.OK ... 29.OK</span> |
+| u        | <span style="color:green;">1.OK 2.OK 3.OK ... 29.OK</span> |
+| x        | <span style="color:green;">1.OK 2.OK 3.OK ... 31.OK</span> |
+| X        | <span style="color:green;">1.OK 2.OK 3.OK ... 31.OK</span> |
+| %        | <span style="color:green;">1.OK 2.OK 3.OK ... 7.OK</span> |
+| mix      | <span style="color:green;">1.OK</span> |
+
+[Bonus]
+category: -
+subcategory: p
+20.OK 21.OK 22.KO 23.KO 24.KO 25.KO 26.OK 27.KO 28.KO 29.KO 
+category: 0 OK
+
+
 https://pythontutor.com/
 
 for training and understund how code does work

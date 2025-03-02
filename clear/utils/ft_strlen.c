@@ -21,3 +21,22 @@ int	ft_strlen(const char *str)
 		count++;
 	return (count);
 }
+
+char *ft_reverse_str(char *str, int len)
+{
+	int		start;
+	int		end;
+	char	temp;
+
+	start = 0;
+	end = len - 1;
+	while (start < end)
+	{
+		temp = str[start];
+		str[start] = str[end];
+		str[end] = temp;
+		start++;
+		end--;
+	}
+	return (str);
+}

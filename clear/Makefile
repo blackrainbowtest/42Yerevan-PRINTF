@@ -16,10 +16,11 @@ DEBUG ?= 0
 # Ստուգել, Անհրաժեշտ է արդյոք ծածկել արտատպումը
 HIDE := $(if $(filter 0,$(DEBUG)),@,)
 
-#CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra
 
 # C sources
-CSRC := ft_printf.c ft_output.c utils/ft_strlen.c ft_write_dig.c ft_format_parse.c
+CSRC := ft_printf.c ft_output.c utils/ft_strlen.c ft_write_dig.c \
+		ft_format_parse.c ft_write_hex.c
 
 # Replace .c to .o (with correct paths)
 OSRC := $(CSRC:%.c=%.o)

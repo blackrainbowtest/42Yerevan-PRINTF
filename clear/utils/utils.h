@@ -31,6 +31,7 @@
 
 // #include "../ft_printf.h"
 
-int	ft_strlen(const char *str);
+int		ft_strlen(const char *str);
+char	*ft_reverse_str(char *hex, int len);
 
 #endif

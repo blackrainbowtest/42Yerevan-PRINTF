@@ -17,6 +17,8 @@ int	ft_putchar(int c, t_keys *keys)
 	int	count;
 
 	count = 0;
+	if (c == '%')
+		return (write(1, "%", 1));
 	if (keys->left_align)
 		count += write(1, &c, 1);
 	while (keys->width > 1)
@@ -44,7 +46,10 @@ int	ft_putstr(char *str, t_keys *keys)
 		count += write(1, str, len);
 	while (keys->width > len)
 	{
-		count += write(1, " ", 1);
+		if (keys->zero_padding && !keys->left_align)
+			count += write(1, "0", 1);
+    	else
+			count += write(1, " ", 1);
 		keys->width--;
 	}
 	if (!keys->left_align)
@@ -69,7 +74,7 @@ int	ft_putnbr(int n, t_keys *keys, int base, int sign)
 			count += write(1, " ", 1);
 		return (count);
 	}
-	count += ft_write_dig(num, base, 0, keys);
+	count += ft_write_dig(num, base, keys);
 	return (count);
 }
 
@@ -79,6 +84,11 @@ int	ft_puthex(unsigned int n, int is_upper, t_keys *keys, int base)
 	char	*hex;
 
 	count = 0;
+	if (n == 0)
+		return (ft_putchar('0', keys));
+	hex = ft_int_to_hex_str((unsigned long)n, base, is_upper, keys);
+	count += ft_putstr(hex, keys);
+	free(hex);
 	return (count);
 }
 
@@ -93,11 +103,16 @@ int	ft_putptr(void *ptr, t_keys *keys, int base)
 		count += ft_putstr(DEFAULTNULL, keys);
 		return (count);
 	}
-	// need create function to switch int to hex
-	// allways write 0x first
+	if (!ptr)
+	{
+		count += write(1, "0x", 2);
+		while (keys->width-- > 2)
+			count += write(1, "0", 1);
+		return (count);
+	}
 	count += write(1, "0x", 2);
-	// need to send hex number to ft_putstr function
-	// need to free hex when i use it with modified itoa
-	printf("width %d\tleft %d\tzero %d", keys->width, keys->left_align, keys->zero_padding);
+	hex = ft_int_to_hex_str((unsigned long)ptr, base, 0, keys);
+	count += ft_putstr(hex, keys);
+	free(hex);
 	return (count);
 }
