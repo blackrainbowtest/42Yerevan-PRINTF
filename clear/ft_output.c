@@ -87,7 +87,7 @@ int	ft_puthex(unsigned int n, int is_upper, t_keys *keys, int base)
 	if (n == 0)
 		return (ft_putchar('0', keys));
 	hex = ft_int_to_hex_str((unsigned long)n, base, is_upper, keys);
-	count += ft_putstr(hex, keys);
+	count += ft_write_hex(hex, keys);
 	free(hex);
 	return (count);
 }
@@ -100,7 +100,7 @@ int	ft_putptr(void *ptr, t_keys *keys, int base)
 	count = 0;
 	if (!ptr && !keys->width)
 	{
-		count += ft_putstr(DEFAULTNULL, keys);
+		count += ft_write_hex(DEFAULTNULL, keys);
 		return (count);
 	}
 	if (!ptr)
@@ -112,7 +112,7 @@ int	ft_putptr(void *ptr, t_keys *keys, int base)
 	}
 	count += write(1, "0x", 2);
 	hex = ft_int_to_hex_str((unsigned long)ptr, base, 0, keys);
-	count += ft_putstr(hex, keys);
+	count += ft_write_hex(hex, keys);
 	free(hex);
 	return (count);
 }

@@ -23,3 +23,29 @@ char	*ft_int_to_hex_str(unsigned long n, int base, int is_upper, t_keys *keys)
 	hex = ft_reverse_str(hex, len);
 	return (hex);
 }
+
+int	ft_write_hex(char *str, t_keys *keys)
+{
+	int	count;
+	int	len;
+
+	count = 0;
+	if (!str)
+		str = STRINGNULL;
+	len = ft_strlen(str);
+	if (keys->precision >= 0 && keys->precision < len)
+		len = keys->precision;
+	if (keys->left_align)
+		count += write(1, str, len);
+	if (keys->precision > len)
+	{
+		while (keys->precision > len)
+		{
+			count += write(1, "0", 1);
+			keys->precision--;
+		}
+	}
+	if (!keys->left_align)
+		count += write(1, str, len);
+	return (count);
+}

@@ -43,6 +43,7 @@ int			ft_putptr(void *ptr, t_keys *keys, int base);
 int			ft_write_dig(unsigned long n, int base, t_keys *keys);
 int 		ft_write_padding(int padding, char c, int diff);
 const char	*ft_format_parse(const char *format, t_keys *keys);
+int			ft_write_hex(char *str, t_keys *keys);
 char		*ft_int_to_hex_str(unsigned long n, int base, int is_upper, t_keys *keys);
 
 # if defined(__linux__)

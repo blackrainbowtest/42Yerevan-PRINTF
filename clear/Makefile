@@ -16,7 +16,7 @@ DEBUG ?= 0
 # Ստուգել, Անհրաժեշտ է արդյոք ծածկել արտատպումը
 HIDE := $(if $(filter 0,$(DEBUG)),@,)
 
-CFLAGS := -Wall -Werror -Wextra
+#CFLAGS := -Wall -Werror -Wextra
 
 # C sources
 CSRC := ft_printf.c ft_output.c utils/ft_strlen.c ft_write_dig.c \

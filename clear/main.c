@@ -254,56 +254,55 @@ int	main()
    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n", 
           count_def == count_ft ? GREEN : RED, count_def, count_ft);
    */
-/*
-   int num1 = 0;
-   long num2 = LONG_MIN;
-   int num3 = 42;
-   int num4 = -42;
 
-   // Test 1: %x с 0
-   printf("Test 1 (%%x с 0):\n");
-   count_def = printf("printf   : |%x|\n", num1);
-   count_ft = ft_printf("ft_printf: |%x|\n", num1);
-   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
-          count_def == count_ft ? GREEN : RED, count_def, count_ft);
+//    int num1 = 0;
+//    long num2 = LONG_MIN;
+//    int num3 = 42;
+//    int num4 = -42;
 
-   // Test 2: %x с LONG_MIN
-   printf("Test 2 (%%x с LONG_MIN):\n");
-   count_def = printf("printf   : |%lx|\n", num2);
-   count_ft = ft_printf("ft_printf: |%lx|\n", num2);
-   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
-          count_def == count_ft ? GREEN : RED, count_def, count_ft);
+//    // Test 1: %x с 0
+//    printf("Test 1 (%%x с 0):\n");
+//    count_def = printf("printf   : |%x|\n", num1);
+//    count_ft = ft_printf("ft_printf: |%x|\n", num1);
+//    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+//           count_def == count_ft ? GREEN : RED, count_def, count_ft);
 
-   // Test 3: %x с 0-флагом, ширина 8, 42
-   printf("Test 3 (0-флаг, ширина 8, 42):\n");
-   count_def = printf("printf   : |%08x|\n", num3);
-   count_ft = ft_printf("ft_printf: |%08x|\n", num3);
-   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
-          count_def == count_ft ? GREEN : RED, count_def, count_ft);
+//    // Test 2: %x с LONG_MIN
+//    printf("Test 2 (%%x с LONG_MIN):\n");
+//    count_def = printf("printf   : |%lx|\n", num2);
+//    count_ft = ft_printf("ft_printf: |%lx|\n", num2);
+//    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+//           count_def == count_ft ? GREEN : RED, count_def, count_ft);
 
-   // Test 4: %x с -флагом, ширина 8, 42
-   printf("Test 4 (-флаг, ширина 8, 42):\n");
-   count_def = printf("printf   : |%-8x|\n", num3);
-   count_ft = ft_printf("ft_printf: |%-8x|\n", num3);
-   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
-          count_def == count_ft ? GREEN : RED, count_def, count_ft);
+//    // Test 3: %x с 0-флагом, ширина 8, 42
+//    printf("Test 3 (0-флаг, ширина 8, 42):\n");
+//    count_def = printf("printf   : |%08x|\n", num3);
+//    count_ft = ft_printf("ft_printf: |%08x|\n", num3);
+//    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+//           count_def == count_ft ? GREEN : RED, count_def, count_ft);
 
-   // Test 5: %X с -флагом, ширина 8, -42
-   printf("Test 5 (-флаг, ширина 8, -42):\n");
-   count_def = printf("printf   : |%-8X|\n", num4);
-   count_ft = ft_printf("ft_printf: |%-8X|\n", num4);
-   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
-          count_def == count_ft ? GREEN : RED, count_def, count_ft);
+//    // Test 4: %x с -флагом, ширина 8, 42
+//    printf("Test 4 (-флаг, ширина 8, 42):\n");
+//    count_def = printf("printf   : |%-8x|\n", num3);
+//    count_ft = ft_printf("ft_printf: |%-8x|\n", num3);
+//    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+//           count_def == count_ft ? GREEN : RED, count_def, count_ft);
 
-   // Test 6: %X с 0-флагом, ширина 8, -42
-   printf("Test 6 (0-флаг, ширина 8, -42):\n");
-   count_def = printf("printf   : |%08X|\n", num4);
-   count_ft = ft_printf("ft_printf: |%08X|\n", num4);
-   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
-          count_def == count_ft ? GREEN : RED, count_def, count_ft);
-   */
+//    // Test 5: %X с -флагом, ширина 8, -42
+//    printf("Test 5 (-флаг, ширина 8, -42):\n");
+//    count_def = printf("printf   : |%-8X|\n", num4);
+//    count_ft = ft_printf("ft_printf: |%-8X|\n", num4);
+//    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+//           count_def == count_ft ? GREEN : RED, count_def, count_ft);
 
-//    printf("|%5%|\n");
-//    ft_printf("|%5%|\n");
+//    // Test 6: %X с 0-флагом, ширина 8, -42
+//    printf("Test 6 (0-флаг, ширина 8, -42):\n");
+//    count_def = printf("printf   : |%08X|\n", num4);
+//    count_ft = ft_printf("ft_printf: |%08X|\n", num4);
+//    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+//           count_def == count_ft ? GREEN : RED, count_def, count_ft);
+
+       ft_printf("\n\n|%.5x|\n\n", 21);
+       printf("\n\n|%.5x|\n\n", 21);
 	return (0);
 }
