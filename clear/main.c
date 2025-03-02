@@ -189,5 +189,25 @@ int	main()
     count_ft = ft_printf("ft_printf: |%p|\n", (void *)0xDEADBEEF);
     printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
            count_def == count_ft ? GREEN : RED, count_def, count_ft);
+
+    // Флаги
+
+    printf("\nTest 6 (- ширина 20):\n");
+    count_def = printf("printf   : |%-20p|\n", ptr_x);
+    count_ft = ft_printf("ft_printf: |%-20p|\n", ptr_x);
+    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+           count_def == count_ft ? GREEN : RED, count_def, count_ft);
+
+    printf("\nTest 7 (0 ширина 20):\n");
+    count_def = printf("printf   : |%020p|\n", ptr_x);
+    count_ft = ft_printf("ft_printf: |%020p|\n", ptr_x);
+    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+           count_def == count_ft ? GREEN : RED, count_def, count_ft);
+
+    printf("\nTest 8 (NULL ширина 20):\n");
+    count_def = printf("printf   : |%020p|\n", null_ptr);
+    count_ft = ft_printf("ft_printf: |%020p|\n", null_ptr);
+    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+           count_def == count_ft ? GREEN : RED, count_def, count_ft);
 	return (0);
 }
