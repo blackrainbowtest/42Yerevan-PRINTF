@@ -88,5 +88,7 @@ int	ft_putptr(void *ptr, t_keys *keys, int base)
 	char	*hex;
 
 	count = 0;
+	if (!ptr)
+		count += ft_putstr(DEFAULTNULL, keys);
 	return (count);
 }
