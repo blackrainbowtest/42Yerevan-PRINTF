@@ -88,7 +88,16 @@ int	ft_putptr(void *ptr, t_keys *keys, int base)
 	char	*hex;
 
 	count = 0;
-	if (!ptr)
+	if (!ptr && !keys->width)
+	{
 		count += ft_putstr(DEFAULTNULL, keys);
+		return (count);
+	}
+	// need create function to switch int to hex
+	// allways write 0x first
+	count += write(1, "0x", 2);
+	// need to send hex number to ft_putstr function
+	// need to free hex when i use it with modified itoa
+	printf("width %d\tleft %d\tzero %d", keys->width, keys->left_align, keys->zero_padding);
 	return (count);
 }
