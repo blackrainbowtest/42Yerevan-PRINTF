@@ -42,17 +42,17 @@ int	ft_putstr(char *str, t_keys *keys)
 	len = ft_strlen(str);
 	if (keys->precision >= 0 && keys->precision < len)
 		len = keys->precision;
-	if (keys->left_align)
+	if (keys->left_align && len > 0)
 		count += write(1, str, len);
 	while (keys->width > len)
 	{
 		if (keys->zero_padding && !keys->left_align)
 			count += write(1, "0", 1);
-    	else
+		else
 			count += write(1, " ", 1);
 		keys->width--;
 	}
-	if (!keys->left_align)
+	if (!keys->left_align && len > 0)
 		count += write(1, str, len);
 	return (count);
 }

@@ -22,7 +22,7 @@ int	ft_strlen(const char *str)
 	return (count);
 }
 
-char *ft_reverse_str(char *str, int len)
+char	*ft_reverse_str(char *str, int len)
 {
 	int		start;
 	int		end;

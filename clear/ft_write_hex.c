@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 
-char	*ft_int_to_hex_str(unsigned long n, int base, int is_upper, t_keys *keys)
+char	*ft_int_to_hex_str(unsigned long n, int base, \
+	int is_upper, t_keys *keys)
 {
 	char	*hex;
 	int		len;
@@ -13,6 +14,8 @@ char	*ft_int_to_hex_str(unsigned long n, int base, int is_upper, t_keys *keys)
 		keys->symbols = HEX_UPPER;
 	else
 		keys->symbols = HEX_LOWER;
+	if (n == 0)
+		hex[len++] = '0';
 	while (n)
 	{
 		hex[len] = keys->symbols[n % base];

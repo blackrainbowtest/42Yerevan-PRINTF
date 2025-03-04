@@ -42,7 +42,7 @@ $(NAME): $(OSRC)
 all: $(NAME)
 
 # No special bonus implementation just call all again
-bonus: all
+#bonus: all
 
 # Clean object files
 clean:
