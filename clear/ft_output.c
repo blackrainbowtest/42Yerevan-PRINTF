@@ -84,7 +84,7 @@ int	ft_puthex(unsigned int n, int is_upper, t_keys *keys, int base)
 	char	*hex;
 
 	count = 0;
-	if (n == 0)
+	if (n == 0 && keys->precision < 0)
 		return (ft_putchar('0', keys));
 	hex = ft_int_to_hex_str((unsigned long)n, base, is_upper, keys);
 	count += ft_write_hex(hex, keys);
