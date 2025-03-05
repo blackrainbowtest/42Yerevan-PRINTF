@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:49:43 by aramarak          #+#    #+#             */
-/*   Updated: 2025/03/02 13:49:44 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/03/05 18:54:57 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlen(const char *str)
 	return (count);
 }
 
-char *ft_reverse_str(char *str, int len)
+char	*ft_reverse_str(char *str, int len)
 {
 	int		start;
 	int		end;
