@@ -323,10 +323,69 @@ int	main()
    ft_printf("|%s|\n", NULL);
    printf("|%s|\n", NULL);
    */
+
+   // all done with p/
+   // printf(" %-1p %-2p ", 0, 0);
+   // ft_printf(" %-1p %-2p ", 0, 0);
 /*
-   all done with p
-   printf(" %-1p %-2p ", 0, 0);
-   ft_printf(" %-1p %-2p ", 0, 0);
+   printf(" |%-11p| |%-12p| \n", INT_MIN, INT_MAX);
+   ft_printf(" |%-11p| |%-12p| \n", INT_MIN, INT_MAX);
+
+   printf(" |%-13p| |%-14p| \n", ULONG_MAX, -ULONG_MAX);
+   ft_printf(" |%-13p| |%-14p| \n", ULONG_MAX, -ULONG_MAX);
 */
+/*
+   printf(" |%04x| \n", 9);
+   ft_printf(" |%04x| \n", 9);
+   printf(" |%01x| \n", 10);
+   ft_printf(" |%01x| \n", 10);
+   printf(" |%03x| \n", 15);
+   ft_printf(" |%03x| \n", 15);
+   printf(" |%04x| \n", 16);
+   ft_printf(" |%04x| \n", 16);
+   printf(" |%05x| \n", 17);
+   ft_printf(" |%05x| \n", 17);
+   printf(" |%01x| \n", 99);
+   ft_printf(" |%01x| \n", 99);
+   printf(" |%01x| \n", -9);
+   ft_printf(" |%01x| \n", -9);
+*/
+/*
+   printf(" |%013x| \n", UINT_MAX);
+   ft_printf(" |%013x| \n", UINT_MAX);
+   printf(" |%01X| \n", 0);
+   ft_printf(" |%01X| \n", 0);
+   printf(" |%013X| \n", UINT_MAX);
+   ft_printf(" |%013X| \n", UINT_MAX);
+   */
+/*
+   printf(" |%.1x| \n", 99);
+   ft_printf(" |%.1x| \n", 99);
+   printf(" |%.1x| \n", -9);
+   ft_printf(" |%.1x| \n", -9);
+
+   printf(" |%.2x| \n", 1);
+   ft_printf(" |%.2x| \n", 1);
+   printf(" |%.2x| \n", 10);
+   ft_printf(" |%.2x| \n", 10);
+   printf(" |%.3x| \n", 11);
+   ft_printf(" |%.3x| \n", 11);
+   printf(" |%.4x| \n", 15);
+   ft_printf(" |%.4x| \n", 15);
+   */
+
+   /*last errors list*/
+
+   printf(" %013x ", UINT_MAX);
+   printf(" %01X ", 0);
+   printf(" %013X ", UINT_MAX);  
+   printf(" %.11x ", LONG_MIN);
+   printf(" %.8x %.9x %.10x %.11x %.12x %.13x %.14x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+   printf(" %.11X ", LONG_MIN);
+   printf(" %.8X %.9X %.10X %.11X %.12X %.13X %.14X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+
+
+
+
 	return (0);
 }
