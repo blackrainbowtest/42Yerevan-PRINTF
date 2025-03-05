@@ -389,6 +389,7 @@ int	main()
    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
        count_def == count_ft ? GREEN : RED, count_def, count_ft);
        */
+   /*
    count_def = printf(" |%.11x| \n", LONG_MIN);
    count_ft = ft_printf(" |%.11x| \n", LONG_MIN);
    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
@@ -400,9 +401,14 @@ int	main()
    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
        count_def == count_ft ? GREEN : RED, count_def, count_ft);
    // printf(" %.8X %.9X %.10X %.11X %.12X %.13X %.14X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+*/
 
 
 
-
+/*
+139:    TEST(111, print(" %013x ", UINT_MAX));
+144:    TEST(115, print(" %01X ", 0));
+169:    TEST(140, print(" %013X ", UINT_MAX));
+*/
 	return (0);
 }
