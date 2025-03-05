@@ -3,7 +3,7 @@
 int	main()
 {
 	int count_def = 0;
-    int count_ft = 0;
+   int count_ft = 0;
 /*
 	int n1 = 42;
     int n2 = -42;
@@ -375,14 +375,31 @@ int	main()
    */
 
    /*last errors list*/
-
-   printf(" %013x ", UINT_MAX);
-   printf(" %01X ", 0);
-   printf(" %013X ", UINT_MAX);  
-   printf(" %.11x ", LONG_MIN);
-   printf(" %.8x %.9x %.10x %.11x %.12x %.13x %.14x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-   printf(" %.11X ", LONG_MIN);
-   printf(" %.8X %.9X %.10X %.11X %.12X %.13X %.14X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+/*
+   count_def = printf(" |%013x| \n", UINT_MAX);
+   count_ft = ft_printf(" |%013x| \n", UINT_MAX);
+   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+       count_def == count_ft ? GREEN : RED, count_def, count_ft);
+   count_def = printf(" |%01X| \n", 0);
+   count_ft = ft_printf(" |%01X| \n", 0);
+   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+       count_def == count_ft ? GREEN : RED, count_def, count_ft);
+   count_def = printf(" |%013X| \n", UINT_MAX);  
+   count_ft = ft_printf(" |%013X| \n", UINT_MAX);  
+   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+       count_def == count_ft ? GREEN : RED, count_def, count_ft);
+       */
+   count_def = printf(" |%.11x| \n", LONG_MIN);
+   count_ft = ft_printf(" |%.11x| \n", LONG_MIN);
+   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+       count_def == count_ft ? GREEN : RED, count_def, count_ft);
+   
+   // printf(" |%.8x| |%.9x| %.10x %.11x %.12x %.13x %.14x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+   count_def = printf(" |%.11X| \n", LONG_MIN);
+   count_ft = ft_printf(" |%.11X| \n", LONG_MIN);
+   printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
+       count_def == count_ft ? GREEN : RED, count_def, count_ft);
+   // printf(" %.8X %.9X %.10X %.11X %.12X %.13X %.14X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 
 
 
