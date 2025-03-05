@@ -42,17 +42,17 @@ int	ft_putstr(char *str, t_keys *keys)
 	len = ft_strlen(str);
 	if (keys->precision >= 0 && keys->precision < len)
 		len = keys->precision;
-	if (keys->left_align)
+	if (keys->left_align && len > 0)
 		count += write(1, str, len);
 	while (keys->width > len)
 	{
 		if (keys->zero_padding && !keys->left_align)
 			count += write(1, "0", 1);
-    	else
+		else
 			count += write(1, " ", 1);
 		keys->width--;
 	}
-	if (!keys->left_align)
+	if (!keys->left_align && len > 0)
 		count += write(1, str, len);
 	return (count);
 }
@@ -106,11 +106,14 @@ int	ft_putptr(void *ptr, t_keys *keys, int base)
 	if (!ptr)
 	{
 		count += write(1, "0x", 2);
+		if (keys->width <= 2)
+			keys->width = 3;
 		while (keys->width-- > 2)
 			count += write(1, "0", 1);
 		return (count);
 	}
 	count += write(1, "0x", 2);
+	keys->width -= 2;
 	hex = ft_int_to_hex_str((unsigned long)ptr, base, 0, keys);
 	count += ft_write_hex(hex, keys);
 	free(hex);

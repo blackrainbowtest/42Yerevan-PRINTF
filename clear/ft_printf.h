@@ -17,10 +17,8 @@
 # include <stdarg.h>
 # include <limits.h>
 # include <stdlib.h>
-/*
-** ft_printf.c
-** -0.
-*/
+# include "utils/utils.h"
+
 typedef struct s_keys
 {
 	int		left_align;
@@ -31,20 +29,19 @@ typedef struct s_keys
 	char	*symbols;
 }			t_keys;
 
-# include "utils/utils.h"
-
 int			ft_printf(const char *format, ...);
-int 		ft_putchar(int c, t_keys *keys);
+int			ft_putchar(int c, t_keys *keys);
 int			ft_putstr(char *str, t_keys *keys);
 int			ft_putnbr(int n, t_keys *keys, int base, int sign);
 int			ft_puthex(unsigned int n, int is_upper, t_keys *keys, int base);
 int			ft_putptr(void *ptr, t_keys *keys, int base);
 
 int			ft_write_dig(unsigned long n, int base, t_keys *keys);
-int 		ft_write_padding(int padding, char c, int diff);
+int			ft_write_padding(int padding, char c, int diff);
 const char	*ft_format_parse(const char *format, t_keys *keys);
 int			ft_write_hex(char *str, t_keys *keys);
-char		*ft_int_to_hex_str(unsigned long n, int base, int is_upper, t_keys *keys);
+char		*ft_int_to_hex_str(unsigned long n, int base, \
+			int is_upper, t_keys *keys);
 
 # if defined(__linux__)
 #  define DEFAULTNULL "(nil)"

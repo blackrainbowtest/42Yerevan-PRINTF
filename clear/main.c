@@ -302,7 +302,31 @@ int	main()
 //    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
 //           count_def == count_ft ? GREEN : RED, count_def, count_ft);
 
-       ft_printf("\n\n|%.5x|\n\n", 21);
-       printf("\n\n|%.5x|\n\n", 21);
+/*LAST CHECKINGS*/
+/*
+   ft_printf("|%-10.8s|\n", NULL);
+   printf("|%-10.8s|\n", NULL);
+
+   ft_printf("|%-3.8s|\n", NULL);
+   printf("|%-3.8s|\n", NULL);
+   
+   ft_printf("|%20.6s|\n", NULL);
+   printf("|%20.6s|\n", NULL);
+   
+   ft_printf("|%3.6s|\n", NULL);
+   printf("|%3.6s|\n", NULL);
+   
+   ft_printf("|%.09s|\n", NULL);
+   printf("|%.09s|\n", NULL);
+
+
+   ft_printf("|%s|\n", NULL);
+   printf("|%s|\n", NULL);
+   */
+/*
+   all done with p
+   printf(" %-1p %-2p ", 0, 0);
+   ft_printf(" %-1p %-2p ", 0, 0);
+*/
 	return (0);
 }
