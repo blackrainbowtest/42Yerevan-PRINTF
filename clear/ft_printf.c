@@ -44,6 +44,8 @@ static void	ft_format_init(t_keys *keys)
 	keys->width = 0;
 	keys->is_negative = 0;
 	keys->symbols = HEX_LOWER;
+	keys->hash = 0;
+	keys->plus = 0;
 }
 
 int	ft_printf(const char *format, ...)

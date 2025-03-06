@@ -68,6 +68,8 @@ int	ft_putnbr(int n, t_keys *keys, int base, int sign)
 		num = (unsigned)(-n);
 	if (n < 0 && (num <= INT_MAX || num == 2147483648) && !sign)
 		keys->is_negative = 1;
+	if (keys->plus && !keys->is_negative)
+		count += write(1, "+", 1);
 	if (keys->precision == 0 && num == 0)
 	{
 		while (keys->width-- > 0)
@@ -86,6 +88,13 @@ int	ft_puthex(unsigned int n, int is_upper, t_keys *keys, int base)
 	count = 0;
 	if (n == 0 && keys->precision < 0)
 		return (ft_putchar('0', keys));
+	if (n != 0 && keys->hash)
+	{
+		if (is_upper)
+			count += write(1, "0X", 2);
+		else
+			count += write(1, "0x", 2);
+	}
 	hex = ft_int_to_hex_str((unsigned long)n, base, is_upper, keys);
 	count += ft_write_hex(hex, keys);
 	free(hex);

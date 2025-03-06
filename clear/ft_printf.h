@@ -26,6 +26,9 @@ typedef struct s_keys
 	int		precision;
 	int		width;
 	int		is_negative;
+	int		hash;
+	int		plus;
+	int		space;
 	char	*symbols;
 }			t_keys;
 

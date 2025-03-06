@@ -14,7 +14,8 @@
 
 static const char	*ft_get_align_padding(const char *format, t_keys *keys)
 {
-	while (*format == '-' || *format == '0')
+	while (*format == '-' || *format == '0' || *format == '#' \
+	|| *format == '+' || *format == ' ')
 	{
 		if (*format == '-')
 		{
@@ -23,6 +24,12 @@ static const char	*ft_get_align_padding(const char *format, t_keys *keys)
 		}
 		else if (*format == '0' && !keys->left_align)
 			keys->zero_padding = 1;
+		else if (*format == '#')
+			keys->hash = 1;
+		else if (*format == '+')
+			keys->plus = 1;
+		else if (*format == ' ' && !keys->plus)
+			keys->space = 1;
 		++format;
 	}
 	return (format);

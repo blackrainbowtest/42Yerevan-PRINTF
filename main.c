@@ -404,11 +404,79 @@ int	main()
 */
 
 
-
 /*
-139:    TEST(111, print(" %013x ", UINT_MAX));
-144:    TEST(115, print(" %01X ", 0));
-169:    TEST(140, print(" %013X ", UINT_MAX));
+    printf("|%013x|\n", UINT_MAX);
+    ft_printf("|%013x|\n", UINT_MAX);
+
+    printf("|%01X|\n", 0);
+    ft_printf("|%01X|\n", 0);
+
+    printf("|%013X|\n", UINT_MAX);
+    ft_printf("|%013X|\n", UINT_MAX);
 */
+
+/* # flag test
+printf(" |%#x|\n", 0);
+ft_printf(" |%#x|\n", 0);
+
+printf(" |%#x|\n", -1);
+ft_printf(" |%#x|\n", -1);
+
+printf(" |%#x|\n", 1);
+ft_printf(" |%#x|\n", 1);
+
+printf(" |%#x|\n", 9);
+ft_printf(" |%#x|\n", 9);
+
+printf(" |%#x|\n", 10);
+ft_printf(" |%#x|\n", 10);
+
+printf(" |%#x|\n", 11);
+ft_printf(" |%#x|\n", 11);
+
+printf(" |%#x|\n", 15);
+ft_printf(" |%#x|\n", 15);
+
+printf(" |%#x|\n", 16);
+ft_printf(" |%#x|\n", 16);
+
+printf(" |%#x|\n", 17);
+ft_printf(" |%#x|\n", 17);
+
+printf(" |%#x|\n", 99);
+ft_printf(" |%#x|\n", 99);
+
+printf(" |%#x|\n", 100);
+ft_printf(" |%#x|\n", 100);
+
+printf(" |%#x|\n", 101);
+ft_printf(" |%#x|\n", 101);
+
+printf(" |%#x|\n", -9);
+ft_printf(" |%#x|\n", -9);
+
+printf(" |%#x|\n", -10);
+ft_printf(" |%#x|\n", -10);
+
+*/
+/* plus flag
+printf("|%+d|\n", 0);
+ft_printf("|%+d|\n", 0);
+printf("|%+d|\n", 9);
+ft_printf("|%+d|\n", 9);
+printf("|%+d|\n", 10);
+ft_printf("|%+d|\n", 10);
+printf("|%+d|\n", 11);
+ft_printf("|%+d|\n", 11);
+printf("|%+d|\n", 15);
+ft_printf("|%+d|\n", 15);
+printf("|%+d|\n", 16);
+ft_printf("|%+d|\n", 16);
+printf("|%+d|\n", 17);
+ft_printf("|%+d|\n", 17);
+printf("|%+d|\n", 99);
+ft_printf("|%+d|\n", 99);
+*/
+
 	return (0);
 }
