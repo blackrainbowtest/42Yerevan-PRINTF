@@ -60,6 +60,9 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%' && *(format + 1))
 		{
+			if (*format == '%' && !ft_strchr("cspdixXu%123456789-0.# +", \
+			*(format + 1)))
+				return (-1);
 			ft_format_init(&keys);
 			format++;
 			format = ft_format_parse(format, &keys);

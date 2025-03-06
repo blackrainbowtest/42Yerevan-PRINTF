@@ -478,5 +478,19 @@ printf("|%+d|\n", 99);
 ft_printf("|%+d|\n", 99);
 */
 
+printf("|% d|\n", 0);
+ft_printf("|% d|\n", 0);
+printf("|% d|\n", 1);
+printf("|% d|\n", 9);
+printf("|% d|\n", 10);
+printf("|% d|\n", 11);
+printf("|% d|\n", 15);
+printf("|% d|\n", 16);
+printf("|% d|\n", 17);
+printf("|% d|\n", 99);
+printf("|% d|\n", 100);
+printf("|% d|\n", 101);
+printf("|% d|\n", INT_MAX);
+printf("|% d|\n", LONG_MIN);
 	return (0);
 }

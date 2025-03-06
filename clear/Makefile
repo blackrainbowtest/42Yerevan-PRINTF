@@ -20,7 +20,7 @@ HIDE := $(if $(filter 0,$(DEBUG)),@,)
 
 # C sources
 CSRC := ft_printf.c ft_output.c utils/ft_strlen.c ft_write_dig.c \
-		ft_format_parse.c ft_write_hex.c
+		ft_format_parse.c ft_write_hex.c utils/ft_strchr.c
 
 # Replace .c to .o (with correct paths)
 OSRC := $(CSRC:%.c=%.o)
@@ -42,7 +42,7 @@ $(NAME): $(OSRC)
 all: $(NAME)
 
 # No special bonus implementation just call all again
-#bonus: all
+bonus: all
 
 # Clean object files
 clean:

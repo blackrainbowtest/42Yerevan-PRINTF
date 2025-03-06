@@ -43,5 +43,6 @@
 
 int		ft_strlen(const char *str);
 char	*ft_reverse_str(char *hex, int len);
+char	*ft_strchr(const char *s, int c);
 
 #endif
