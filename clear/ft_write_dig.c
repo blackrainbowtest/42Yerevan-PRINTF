@@ -91,6 +91,8 @@ int	ft_write_dig(unsigned long n, int base, t_keys *keys)
 		count += ft_write_padding(padding, ' ', 0);
 	if (keys->is_negative)
 		count += write(1, "-", 1);
+	if (keys->space && !keys->is_negative)
+		count += write(1, " ", 1);
 	count += ft_write_data(num, len, zero_fill);
 	if (keys->left_align)
 		count += ft_write_padding(padding, ' ', 0);
