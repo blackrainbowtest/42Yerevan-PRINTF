@@ -59,11 +59,15 @@ unsigned long n, int base)
 	return (len);
 }
 
-static int	ft_write_data(char *num, int len, int zero_fill)
+static int	ft_write_data(char *num, int len, int zero_fill, t_keys *keys)
 {
 	int		count;
 
 	count = 0;
+	if (keys->is_negative)
+		count += write(1, "-", 1);
+	if (keys->space && !keys->is_negative)
+		count += write(1, " ", 1);
 	count += ft_write_padding(zero_fill, '0', 0);
 	num = ft_reverse_str(num, len);
 	count += write(1, num, len);
@@ -89,11 +93,7 @@ int	ft_write_dig(unsigned long n, int base, t_keys *keys)
 		padding = keys->width - (len + zero_fill + keys->is_negative);
 	if (!keys->left_align)
 		count += ft_write_padding(padding, ' ', 0);
-	if (keys->is_negative)
-		count += write(1, "-", 1);
-	if (keys->space && !keys->is_negative)
-		count += write(1, " ", 1);
-	count += ft_write_data(num, len, zero_fill);
+	count += ft_write_data(num, len, zero_fill, keys);
 	if (keys->left_align)
 		count += ft_write_padding(padding, ' ', 0);
 	free(num);

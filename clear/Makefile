@@ -59,16 +59,16 @@ fclean: clean
 # Recompile everything
 re: fclean all
 
-test: re
-	$(HIDE)echo "$(RED)Compiling program ...$(RESET)"
-	$(HIDE)$(CC) main.c libftprintf.a -o my_program
-	$(HIDE)echo "$(GREEN)Compilation completed ...$(RESET)"
-	$(HIDE)make fclean
-	$(HIDE)./my_program
+# test: re
+# 	$(HIDE)echo "$(RED)Compiling program ...$(RESET)"
+# 	$(HIDE)$(CC) main.c libftprintf.a -o my_program
+# 	$(HIDE)echo "$(GREEN)Compilation completed ...$(RESET)"
+# 	$(HIDE)make fclean
+# 	$(HIDE)./my_program
 
-norm:
-	$(HIDE)echo "$(RED)Start norm without tmp files ...$(RESET)"
-	$(HIDE)norminette $(CSRC)
-	$(HIDE)echo "$(GREEN)DONE ...$(RESET)"
+# norm:
+# 	$(HIDE)echo "$(RED)Start norm without tmp files ...$(RESET)"
+# 	$(HIDE)norminette $(CSRC)
+# 	$(HIDE)echo "$(GREEN)DONE ...$(RESET)"
 
 .PHONY: clean fclean re all bonus
