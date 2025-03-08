@@ -34,9 +34,7 @@ utils/%.o: utils/%.c
 
 # Rule to create the library
 $(NAME): $(OSRC)
-	$(HIDE)echo "$(YELLOW)Making archive file ...$(RESET)"
 	$(HIDE)ar -rcs $(NAME) $(OSRC)
-	$(HIDE)echo "$(GREEN)Making completed ...$(RESET)"
 
 # Base target
 all: $(NAME)
@@ -46,29 +44,31 @@ bonus: all
 
 # Clean object files
 clean:
-	$(HIDE)echo "$(BLUE)Starting cleaning object files ...$(RESET)"
 	$(HIDE)$(RM) $(OSRC)
-	$(HIDE)echo "$(GREEN)Cleaning completed ...$(RESET)"
 
 # Full clean (including library file)
 fclean: clean
-	$(HIDE)echo "$(BLUE)Starting cleaning archive file ...$(RESET)"
 	$(HIDE)$(RM) $(NAME)
-	$(HIDE)echo "$(GREEN)Cleaning completed ...$(RESET)"
 
 # Recompile everything
 re: fclean all
 
-# test: re
-# 	$(HIDE)echo "$(RED)Compiling program ...$(RESET)"
-# 	$(HIDE)$(CC) main.c libftprintf.a -o my_program
-# 	$(HIDE)echo "$(GREEN)Compilation completed ...$(RESET)"
-# 	$(HIDE)make fclean
-# 	$(HIDE)./my_program
+test: re
+	$(HIDE)echo -n "$(YELLOW)Start compiling: ["
+	$(HIDE)$(CC) main.c libftprintf.a -o my_program
+	$(HIDE)echo "$(GREEN)OK$(RESET)]"
+#	$(HIDE)make fclean
+	$(HIDE)echo -n "$(BLUE)Running tests: ["
+	$(HIDE)for i in $$(seq 1 20); do \
+	    echo -n "$(GREEN)#$(RESET)"; \
+	    sleep 0.05; \
+	done
+	$(HIDE)echo "] $(GREEN)Done!$(RESET)"
+	$(HIDE)./my_program
 
-# norm:
-# 	$(HIDE)echo "$(RED)Start norm without tmp files ...$(RESET)"
-# 	$(HIDE)norminette $(CSRC)
-# 	$(HIDE)echo "$(GREEN)DONE ...$(RESET)"
+norm:
+	$(HIDE)echo "$(RED)Start norm without tmp files ...$(RESET)"
+	$(HIDE)norminette $(CSRC)
+	$(HIDE)echo "$(GREEN)DONE ...$(RESET)"
 
 .PHONY: clean fclean re all bonus
