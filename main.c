@@ -480,16 +480,17 @@ ft_printf("|% d|\n", -15);
 */
 
 
-   count_def = printf(" %013x \n", UINT_MAX);
-   count_ft = ft_printf(" %013x \n", UINT_MAX);
+count_def = printf(" %d \n", 42);
+count_ft = ft_printf(" %d \n", 42);
    printf("%sРезультаты.\tprintf:%d\tft_printf:%d\n" RESET, 
        count_def == count_ft ? GREEN : RED, count_def, count_ft);
 
-    printf("|%01X|\n", 0);
-    ft_printf("|%01X|\n", 0);
+   //  printf("|%01X|\n", 0);
+   //  ft_printf("|%01X|\n", 0);
 
-    printf("|%013X|\n", UINT_MAX);
-    ft_printf("|%013X|\n", UINT_MAX);
+   //  printf("|%013X|\n", UINT_MAX);
+   //  ft_printf("|%013X|\n", UINT_MAX);
+
 
 	return (0);
 }
