@@ -1,9 +1,8 @@
 # Define color codes
-RED    := \033[31m
-GREEN  := \033[32m
-YELLOW := \033[33m
-BLUE   := \033[34m
-RESET  := \033[0m
+YELLOW = [33m
+GREEN  = [32m
+BLUE   = [34m
+RESET  = [0m
 
 NAME := libftprintf.a
 
@@ -53,22 +52,22 @@ fclean: clean
 # Recompile everything
 re: fclean all
 
-test: re
-	$(HIDE)echo -n "$(YELLOW)Start compiling: ["
-	$(HIDE)$(CC) main.c libftprintf.a -o my_program
-	$(HIDE)echo "$(GREEN)OK$(RESET)]"
-#	$(HIDE)make fclean
-	$(HIDE)echo -n "$(BLUE)Running tests: ["
-	$(HIDE)for i in $$(seq 1 20); do \
-	    echo -n "$(GREEN)#$(RESET)"; \
-	    sleep 0.05; \
-	done
-	$(HIDE)echo "] $(GREEN)Done!$(RESET)"
-	$(HIDE)./my_program
+# test: re
+# 	$(HIDE)printf "%s" "$(YELLOW)Start compiling: ["
+# 	$(HIDE)$(CC) main.c libftprintf.a -o my_program
+# 	$(HIDE)printf "%s\n" "$(GREEN)OK$(RESET)]"
+# #	$(HIDE)make fclean
+# 	$(HIDE)printf "%s" "$(BLUE)Running tests: ["
+# 	$(HIDE)for i in $$(seq 1 20); do \
+# 	    printf "%s" "$(GREEN)#$(RESET)"; \
+# 	    sleep 0.05; \
+# 	done
+# 	$(HIDE)printf "%s\n" "] $(GREEN)Done!$(RESET)"
+# 	$(HIDE)./my_program
 
-norm:
-	$(HIDE)echo "$(RED)Start norm without tmp files ...$(RESET)"
-	$(HIDE)norminette $(CSRC)
-	$(HIDE)echo "$(GREEN)DONE ...$(RESET)"
+# norm:
+# 	$(HIDE)echo "$(RED)Start norm without tmp files ...$(RESET)"
+# 	$(HIDE)norminette $(CSRC)
+# 	$(HIDE)echo "$(GREEN)DONE ...$(RESET)"
 
 .PHONY: clean fclean re all bonus

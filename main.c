@@ -492,5 +492,6 @@ count_ft = ft_printf(" %d \n", 42);
    //  ft_printf("|%013X|\n", UINT_MAX);
 
 
+   ft_printf("%d", 42);
 	return (0);
 }
