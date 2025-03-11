@@ -29,8 +29,10 @@ static int	ft_zero_fill(t_keys *keys, int len)
 	int		use_zero_padding;
 	int		zero_fill;
 
-	use_zero_padding = keys->zero_padding && (keys->precision < 0) \
-						&& !keys->left_align;
+	if (keys->zero_padding && (keys->precision < 0) && !keys->left_align)
+		use_zero_padding = 1;
+	else
+		use_zero_padding = 0;
 	zero_fill = 0;
 	if (keys->precision > len)
 		zero_fill = keys->precision - len;
