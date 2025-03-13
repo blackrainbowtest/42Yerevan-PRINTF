@@ -239,6 +239,46 @@
 
 Ես ցանկություն չունեմ տվյալ պահին գրել նման եղանակով, բացի այդ առկա են բազում խնդիրներ բուն կոդի մեջ, սակայն կարող եմ խորհուրդ տալ պահպանել տպագրված սիմվոլների քանակը ստրուկտուրայում ու որևէ սխալի դեպքում կարող եք keys->count = -1; և ստուգեք պայման, որ եթե տպագրված սիմվոլների քանակը -1 է, ուրեմն որևէ խնդիր կա ու դադարեցնել աշխատանքը և վերադարձնել keys->count -ը:
 
+mulinette used 3.3.51 version norminette to check your work. I faild one time becouse i used norminette 3.3.55 version and find some issues))
+
+for install local norminette 3.3.51 version on your local directory u need:
+
+go to your folder
+
+install local env
+```bash
+    python3 -m venv norm_env
+```
+
+activate local env
+```bash
+    source norm_env/bin/activate
+```
+
+install norm from archive
+```bash
+    pip install norminette-*.tar.gz
+```
+
+check current used norminette
+```bash
+    which norminette
+```
+
+if it continue use global norminette u can use your local one by this code
+```bash
+    python -m norminette -v
+```
+
+when u want use your norm in other folder u need select a way like this
+```bash
+    ../norm_env/bin/python -m norminette
+```
+
+when u finish your work u can deactivate your local env
+```bash
+    deactivate
+```
 
 https://pythontutor.com/
 

@@ -52,18 +52,18 @@ fclean: clean
 # Recompile everything
 re: fclean all
 
-# test: re
-# 	$(HIDE)printf "%s" "$(YELLOW)Start compiling: ["
-# 	$(HIDE)$(CC) main.c libftprintf.a -o my_program
-# 	$(HIDE)printf "%s\n" "$(GREEN)OK$(RESET)]"
-# #	$(HIDE)make fclean
-# 	$(HIDE)printf "%s" "$(BLUE)Running tests: ["
-# 	$(HIDE)for i in $$(seq 1 20); do \
-# 	    printf "%s" "$(GREEN)#$(RESET)"; \
-# 	    sleep 0.05; \
-# 	done
-# 	$(HIDE)printf "%s\n" "] $(GREEN)Done!$(RESET)"
-# 	$(HIDE)./my_program
+test: re
+	$(HIDE)printf "%s" "$(YELLOW)Start compiling: ["
+	$(HIDE)$(CC) main.c libftprintf.a -o my_program
+	$(HIDE)printf "%s\n" "$(GREEN)OK$(RESET)]"
+#	$(HIDE)make fclean
+	$(HIDE)printf "%s" "$(BLUE)Running tests: ["
+	$(HIDE)for i in $$(seq 1 20); do \
+	    printf "%s" "$(GREEN)#$(RESET)"; \
+	    sleep 0.05; \
+	done
+	$(HIDE)printf "%s\n" "] $(GREEN)Done!$(RESET)"
+	$(HIDE)./my_program
 
 # norm:
 # 	$(HIDE)echo "$(RED)Start norm without tmp files ...$(RESET)"
